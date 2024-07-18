@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Siswa  extends CI_Controller
+class Kelas  extends CI_Controller
 {
 
     function __construct()
@@ -10,7 +10,7 @@ class Siswa  extends CI_Controller
         $this->load->helper('form');
         $this->load->helper('url');
         // $this->load->model('M_user');
-        $this->load->model('M_siswa');
+        $this->load->model('M_kelas');
         // $this->load->model('M_guru');
         $this->title = "Data Siswa | SMK BANI USMAN MANUNGGAL";
 
@@ -21,10 +21,10 @@ class Siswa  extends CI_Controller
     {
 
         $data['title'] = $this->title;
-        $data['button'] = 'Siswa';
-        $data['table'] = 'Informasi Data Siswa';
-        $data['siswa'] = $this->M_siswa->tampil_data();
-        $this->load->view('Homepage/List.siswa.php',$data);
+        $data['button'] = 'Kelas';
+        $data['table'] = 'Informasi Data Kelas';
+        $data['kelas'] = $this->M_kelas->tampil_data();
+        $this->load->view('Homepage/List.kelas.php',$data);
     }
 
 
@@ -107,7 +107,7 @@ class Siswa  extends CI_Controller
             'waktu' => $waktu
         );
 
-        $this->M_siswa->input_data($data, 'tabel_siswa');
+        $this->M_kelas->input_data($data, 'tabel_siswa');
         echo $this->session->set_flashdata('msg', 'success');
         redirect('Homepage/Siswa');
 
@@ -188,7 +188,7 @@ class Siswa  extends CI_Controller
         'id_siswa' => $id_siswa
     );
 
-     $this->M_siswa->update_data($where,$data, 'tabel_siswa');
+     $this->M_kelas->update_data($where,$data, 'tabel_siswa');
      echo $this->session->set_flashdata('msg', 'success_update');
      redirect('Homepage/Siswa');
 
@@ -197,7 +197,7 @@ class Siswa  extends CI_Controller
  public function delete($id_siswa)
  {
     $id_siswa = $this->input->post('id_siswa');
-    $this->M_siswa->delete_data($id_siswa);
+    $this->M_kelas->delete_data($id_siswa);
     echo $this->session->set_flashdata('msg', 'success_hapus');
     redirect('Homepage/Siswa');
 }

@@ -90,176 +90,27 @@
 												<div class="modal-body">
 													<p class="small">Isikan semua data dengan benar.</p>
 													<form action="<?php echo base_url('Homepage/Siswa/add') ?>" method="POST">
-														<span class="badge badge-primary mb-4">Data Diri</span>
+														<span class="badge badge-primary mb-4">Data Kelas</span>
 														<div class="row">
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
-																	<label>Nis</label>
-																	<input type="text" name="nis" class="form-control" placeholder="Nis" required="">
+																	<label>Nama Kelas</label>
+																	<input type="text" name="nama_kelas" class="form-control" placeholder="Nis" required="">
 																</div>
 															</div>
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
-																	<label>Nisn</label>
-																	<input name="nisn" type="text" class="form-control" placeholder="Nisn" required="">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Nama Siswa</label>
-																	<input name="nama_siswa" type="text" class="form-control" placeholder="Nama Siswa" required="">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Kelas</label>
-																	<select class="form-control" name="kelas" required="">
+																	<label>Tingkatan</label>
+																	<select class="form-control" name="tingakatan" required="">
 																		<option value=""> Pilih </option>
-																		<option value="1"> 1 </option>
-																	</select>
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Jenis Kelamin</label>
-																	<select class="form-control" name="jenis_kelamin" required="">
-																		<option value=""> Pilih </option>
-																		<option value="Laki - Laki"> Laki - Laki</option>
-																		<option value="Perempuan"> Perempuan </option>
+																		<option value="X"> X </option>
+																		<option value="XI"> XI </option>
+																		<option value="XII"></option>
 																	</select>
 																</div>
 															</div>
 														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Jenis Pendaftaran</label>
-																	<select class="form-control" name="jenis_pendaftaran" required="">
-																		<option value=""> Pilih </option>
-																		<option value="Siswa Baru"> Siswa Baru </option>
-																		<option value="Siswa Pindahan"> Siswa Pindahan </option>
-																	</select>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Penerimaan Data</label>
-																	<input type="date" name="penerimaan_data" class="form-control" required="">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Tempat Lahir</label>
-																	<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" required ="">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Tanggal Lahir</label>
-																	<input type="date" name="tanggal_lahir" class="form-control" required="">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Agama</label>
-																	<select class="form-control" name="agama" required="">
-																		<option value=""> Pilih </option>
-																		<option value="Islam"> Islam </option>
-																		<option value="Protestan"> Protestan </option>
-																		<option value="Katolik"> Katolik </option>
-																		<option value="Hindu"> Hindu </option>
-																		<option value="Buddha"> Buddha </option>
-																	</select>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Alamat</label>
-																	<textarea class="form-control" name="alamat" rows="3"></textarea>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-sm-6">
-																	<div class="form-group form-group-default">
-																		<label>Nomor Telp.</label>
-																		<input type="text" name="telepon" class="form-control" required="" placeholder="Nomor Telp.">
-																	</div>
-																</div>
-																<div class="col-sm-6">
-																	<div class="form-group form-group-default">
-																		<label>Anak Ke-</label>
-																		<input type="text" name="anak_ke" class="form-control" required="" placeholder="Anak Ke-">
-																	</div>
-																</div>
-															</div>
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Status dalam keluarga</label>
-																	<select class="form-control" name="status_keluarga">
-																		<option value=""> Pilih </option>
-																		<option value="Anak Kandung"> Anak Kandung </option>
-																		<option value="Anak Angkat"> Anak Angkat </option>
-																		<option value="Anak Tiri"> Anak Tiri </option>
-																	</select>
-																</div>
-															</div>
-														</div>
-														<span class="badge badge-primary mb-4">Data Keluarga</span>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Nama Ayah</label>
-																	<input type="text" name="nama_ayah" class="form-control" required="" placeholder="Nama Ayah">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Nama Ibu</label>
-																	<input type="text" name="nama_ibu" class="form-control" required="" placeholder="Nama Ibu">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Pekerjaan Ayah</label>
-																	<input type="text" name="pekerjaan_ayah" class="form-control" required="" placeholder="Pekerjaan Ayah">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Pekerjaan Ibu</label>
-																	<input type="text" name="pekerjaan_ibu" class="form-control" required="" placeholder="Pekerjaan Ibu">
-																</div>
-															</div>
-														</div>
-														<span class="badge badge-primary mb-4">Data Wali</span>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Nama Wali</label>
-																	<input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Pekerjaan Wali</label>
-																	<input type="text" name="pekerjaan_wali" class="form-control" placeholder="Pekerjaan Wali">
-																</div>
-															</div>
-														</div>
+
 													</div>
 													<style type="text/css">
 														.thick-hr {
@@ -283,48 +134,46 @@
 											<thead>
 												<tr>
 													<th>No.</th>
-													<th>Nisn</th>
-													<th>Nama Siswa</th>
-													<th>Jenis Kelamin</th>
-													<th>Kelas</th>
+													<th>Nama kelas</th>
+													<th>Tingkatan</th>
+													<th>Walas</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
 											<tfoot>
 												<tr>
 													<th>No.</th>
-													<th>Nisn</th>
-													<th>Nama Siswa</th>
-													<th>Jenis Kelamin</th>
-													<th>Kelas</th>
+													<th>Nama kelas</th>
+													<th>Tingkatan</th>
+													<th>Walas</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</tfoot>
 											<tbody>
 												<?php
 												$no = 0;
-												foreach ($siswa->result_array() as $row) :
+												foreach ($kelas->result_array() as $row) :
 
 													$no++;
-													$id_siswa               = $row['id_siswa'];
-													$nisn           = $row['nisn'];
-													$nama_siswa = $row['nama_siswa'];
-													$jenis_kelamin = $row['jenis_kelamin'];
+													$id_kelas               = $row['id_kelas'];
+													$nama_kelas           = $row['nama_kelas'];
+													$tingakatan = $row['tingakatan'];
+													$walas = $row['walas'];
 													$kelas =  $row['kelas'];
 													
 													?>
 													<tr>
 														<td><?php echo $no;?></td>
-														<td><?php echo $nisn;?></td>
-														<td><?php echo $nama_siswa;?></td>
-														<td><?php echo $jenis_kelamin;?></td>
-														<td><?php echo $kelas;?></td>
+														<td><?php echo $nama_kelas;?></td>
+														<td><?php echo $tingakatan;?></td>
+														<td><?php echo $walas;?></td>
+
 														<td>
 															<div class="form-button-action">
-																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_siswa;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_kelas;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 																	<i class="fa fa-edit"></i>
 																</button>
-																<button type="button" data-toggle="modal" data-target="#hapus<?php echo $id_siswa;?>" title="" class="btn btn-link btn-danger" data-original-title="Hapus Data">
+																<button type="button" data-toggle="modal" data-target="#hapus<?php echo $id_kelas;?>" title="" class="btn btn-link btn-danger" data-original-title="Hapus Data">
 																	<i class="fa fa-times"></i>
 																</button>
 															</div>
@@ -345,18 +194,18 @@
 			<!-- edit -->
 			<?php
 			$no = 0;
-			foreach ($siswa->result_array() as $row) :
+			foreach ($kelas->result_array() as $row) :
 
 				$no++;
-				$id_siswa               = $row['id_siswa'];
-				$nama_siswa = $row['nama_siswa'];
+				$id_kelas               = $row['id_kelas'];
+				$tingakatan = $row['tingakatan'];
 				$kelas           = $row['kelas'];
-				$jenis_kelamin 			= $row['jenis_kelamin'];
+				$walas 			= $row['walas'];
 				$jenis_pendaftaran 			= $row['jenis_pendaftaran'];
 				$penerimaan_data 			= $row['penerimaan_data'];
 
 				$nis 			= $row['nis'];
-				$nisn 			= $row['nisn'];
+				$nama_kelas 			= $row['nama_kelas'];
 				$tempat_lahir 			= $row['tempat_lahir'];
 				$tanggal_lahir 			= $row['tanggal_lahir'];
 				$agama 			= $row['agama'];
@@ -373,10 +222,10 @@
 				$nama_wali 			= $row['nama_wali'];
 				$pekerjaan_wali 			= $row['pekerjaan_wali'];
 
-				$jenis_kelamin 			= $row['jenis_kelamin'];
+				$walas 			= $row['walas'];
 
 				?>
-				<div class="modal fade" id="edit<?php echo $id_siswa;?>" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="edit<?php echo $id_kelas;?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header no-bd">
@@ -402,13 +251,13 @@
 											<div class="form-group form-group-default">
 												<label>Nis</label>
 												<input type="text" name="nis" class="form-control" placeholder="Nis" value="<?php echo $nis;?>">
-												<input type="hidden" name="id_siswa" value="<?php echo $id_siswa;?>">
+												<input type="hidden" name="id_kelas" value="<?php echo $id_kelas;?>">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
 												<label>Nisn</label>
-												<input name="nisn" type="text" class="form-control" placeholder="Nisn" value="<?php echo $nisn;?>">
+												<input name="nama_kelas" type="text" class="form-control" placeholder="Nisn" value="<?php echo $nama_kelas;?>">
 											</div>
 										</div>
 									</div>
@@ -416,7 +265,7 @@
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
 												<label>Nama Siswa</label>
-												<input name="nama_siswa" type="text" class="form-control" placeholder="Nama Siswa" value="<?php echo $nama_siswa;?>">
+												<input name="tingakatan" type="text" class="form-control" placeholder="Nama Siswa" value="<?php echo $tingakatan;?>">
 											</div>
 										</div>
 									</div>
@@ -433,8 +282,8 @@
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
 												<label>Jenis Kelamin</label>
-												<select class="form-control" name="jenis_kelamin" required="">
-													<option value="<?php echo $jenis_kelamin;?>"> <?php echo $jenis_kelamin;?> </option>
+												<select class="form-control" name="walas" required="">
+													<option value="<?php echo $walas;?>"> <?php echo $walas;?> </option>
 													<option value="Laki - Laki"> Laki - Laki</option>
 													<option value="Perempuan"> Perempuan </option>
 												</select>
@@ -591,13 +440,13 @@
 			<!-- hapus -->
 			<?php
 			$no = 0;
-			foreach ($siswa->result_array() as $row) :
+			foreach ($kelas->result_array() as $row) :
 
 				$no++;
-				$id_siswa               = $row['id_siswa'];
-				$nama_siswa 			= $row['nama_siswa'];
+				$id_kelas               = $row['id_kelas'];
+				$tingakatan 			= $row['tingakatan'];
 				?>
-				<div class="modal fade" id="hapus<?php echo $id_siswa;?>" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="hapus<?php echo $id_kelas;?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header no-bd">
@@ -617,8 +466,8 @@
 							<div class="modal-body">
 
 								<form action="<?php echo base_url('Homepage/Siswa/delete') ?>" method="POST">
-									<p>Apakah kamu yakin ingin menghapus data siswa, <strong><?php echo $nama_siswa;?> ?</strong></p>
-									<input type="hidden" name="id_siswa" value="<?php echo $id_siswa;?>">
+									<p>Apakah kamu yakin ingin menghapus data siswa, <strong><?php echo $tingakatan;?> ?</strong></p>
+									<input type="hidden" name="id_kelas" value="<?php echo $id_kelas;?>">
 								</div>
 								<style type="text/css">
 									.thick-hr {

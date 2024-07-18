@@ -60,11 +60,25 @@
 					<div class="collapse" id="base">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="components/avatars.html">
-									<span class="sub-item">Avatars</span>
+								<a href="#">
+									<span class="sub-item">Data Sekolah</span>
 								</a>
 							</li>
-							
+							<li>
+								<a href="#">
+									<span class="sub-item">Data Tahun Pelajaran</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url('Homepage/Kelas/') ?>">
+									<span class="sub-item">Data Kelas</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Data Mapel</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</li>
@@ -77,11 +91,30 @@
 					<div class="collapse" id="sidebarLayouts">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="sidebar-style-1.html">
-									<span class="sub-item">Sidebar Style 1</span>
+								<a href="<?php echo base_url('Homepage/Siswa/') ?>">
+									<span class="sub-item">Data Siswa</span>
 								</a>
 							</li>
-							
+							<li>
+								<a href="#">
+									<span class="sub-item">Data Wali Kelas</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Data Guru</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Data Wali Kelas</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Data Admin</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</li>
@@ -101,8 +134,33 @@
 					<div class="collapse" id="forms">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="forms/forms.html">
-									<span class="sub-item">Basic Form</span>
+								<a href="#">
+									<span class="sub-item">Pembelajaran</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Nilai Sosial</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Nilai Spiritual</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Ketidakhadiran</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Ekstrakurikuler</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="sub-item">Prestasi</span>
 								</a>
 							</li>
 						</ul>
@@ -117,19 +175,19 @@
 				<li class="nav-item">
 					<a data-toggle="collapse" href="#tables">
 						<i class="fas fa-file"></i>
-						<p>Tables</p>
+						<p>Rapot Siswa</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="tables">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="tables/tables.html">
-									<span class="sub-item">Basic Table</span>
+								<a href="#">
+									<span class="sub-item">Nilai Akhir</span>
 								</a>
 							</li>
 							<li>
 								<a href="tables/datatables.html">
-									<span class="sub-item">Datatables</span>
+									<span class="sub-item">Cetak Rapot</span>
 								</a>
 							</li>
 						</ul>

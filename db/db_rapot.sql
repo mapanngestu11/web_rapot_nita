@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jul 2024 pada 03.48
+-- Waktu pembuatan: 18 Jul 2024 pada 16.03
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -244,7 +244,7 @@ CREATE TABLE `tabel_siswa` (
   `pekerjaan_ayah` varchar(50) NOT NULL,
   `pekerjaan_ibu` varchar(50) NOT NULL,
   `nama_wali` varchar(50) NOT NULL,
-  `pekerjaa_wali` varchar(50) NOT NULL,
+  `pekerjaan_wali` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `hak_akses` varchar(10) NOT NULL,
@@ -256,8 +256,8 @@ CREATE TABLE `tabel_siswa` (
 -- Dumping data untuk tabel `tabel_siswa`
 --
 
-INSERT INTO `tabel_siswa` (`id_siswa`, `nama_siswa`, `kelas`, `jenis_kelamin`, `jenis_pendaftaran`, `penerimaan_data`, `nis`, `nisn`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `telepon`, `nama_ayah`, `nama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `pekerjaa_wali`, `username`, `password`, `hak_akses`, `dibuat_oleh`, `waktu`) VALUES
-(1, 'Budi', 'X', 'L', '1', '2024-07-05', '1', '1', '1', '2024-07-05', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'siswa', 'bcd724d15cde8c47650fda962968f102', 'siswa', 1, '2024-07-05 09:35:43');
+INSERT INTO `tabel_siswa` (`id_siswa`, `nama_siswa`, `kelas`, `jenis_kelamin`, `jenis_pendaftaran`, `penerimaan_data`, `nis`, `nisn`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `telepon`, `nama_ayah`, `nama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `pekerjaan_wali`, `username`, `password`, `hak_akses`, `dibuat_oleh`, `waktu`) VALUES
+(4, 'nina', '1', 'Laki - Laki', 'Siswa Baru', '2024-07-11', '12345', '123', 'bandung', '2024-07-02', 'Islam', 'Anak Kandung', '1', 'alamt', '123', 'ayah', 'ibu', 'kerja ayah', 'kerja ibu', '', '', '12345', '02257f912e3641aa7ae2f0a0cb941466', 'siswa', 0, '2024-07-17 02:53:22');
 
 -- --------------------------------------------------------
 
@@ -480,7 +480,7 @@ ALTER TABLE `tabel_prestasi`
 -- AUTO_INCREMENT untuk tabel `tabel_siswa`
 --
 ALTER TABLE `tabel_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tabel_tahun_pelajaran`

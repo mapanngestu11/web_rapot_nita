@@ -1,13 +1,13 @@
 <?php
-class M_siswa extends CI_Model
+class M_kelas extends CI_Model
 {
 	
 
-	private $_table = "tabel_siswa";
+	private $_table = "tabel_kelas";
 
 	function tampil_data()
 	{
-		return $this->db->get('tabel_siswa');
+		return $this->db->get('tabel_kelas');
 	}
 	
 	function input_data($data, $table)
@@ -15,9 +15,9 @@ class M_siswa extends CI_Model
 		$this->db->insert($table, $data);
 	}
 
-	function delete_data($id_siswa)
+	function delete_data($id_kelas)
 	{
-		$hsl = $this->db->query("DELETE FROM tabel_siswa WHERE id_siswa='$id_siswa'");
+		$hsl = $this->db->query("DELETE FROM tabel_kelas WHERE id_kelas='$id_kelas'");
 		return $hsl;
 	}
 
