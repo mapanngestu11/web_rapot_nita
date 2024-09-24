@@ -12,7 +12,11 @@ class Dashboard  extends CI_Controller
         // $this->load->model('M_user');
         // $this->load->model('M_siswa');
         // $this->load->model('M_guru');
-
+        if ($this->session->userdata('masuk') != TRUE) {
+            $this->session->set_flashdata('msg', '<div class="alert alert-warning" role="alert">Login Terlebih Dahulu ! </div>');
+            $url = base_url('Login');
+            redirect($url);
+        }
 
         
     }

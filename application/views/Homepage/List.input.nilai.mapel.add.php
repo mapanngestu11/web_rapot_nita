@@ -34,7 +34,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">E-Rapor</h4>
+						<h4 class="page-title">E-RAPOR</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -56,50 +56,28 @@
 						</ul>
 					</div>
 					<div class="row">
+
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
-										<h4 class="card-title">Informasi Data Pelajaran</h4>
-									</div>
-								</div>
-								<div class="card-body">
-									<table class="table">
-										<tr>
-											<td style="width: 15%">Mata Pelajaran</td>
-											<td style="width: 2%">:</td>
-											<td>Bahasa Indonesia</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">Kelas</td>
-											<td style="width: 2%">:</td>
-											<td>7</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">KKM</td>
-											<td style="width: 2%">:</td>
-											<td>70</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">Guru Pengampu</td>
-											<td style="width: 2%">:</td>
-											<td>Pak Budi</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">Tahun Pelajaran</td>
-											<td style="width: 2%">:</td>
-											<td>2024 / 2025</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="d-flex align-items-center">
-										<h4 class="card-title"><?php echo $table;?></h4>
-										
+										<h4 class="card-title"><?php echo $table;?><br>
+											<hr>
+											<table>
+												<tr>
+													<td>Nama Guru</td>
+													<td>:</td>
+													<td>Ujang</td>
+												</tr>
+												<tr>
+													<td>Mata Pelajaran</td>
+													<td>:</td>
+													<td>IPA</td>
+												</tr>
+											</table>
+										</h4>
+										<hr>
+
 									</div>
 								</div>
 								<div class="card-body">
@@ -112,9 +90,12 @@
 												<tr>
 													<th>No.</th>
 													<th>Nis</th>
-													<th>Nama</th>
-													<th>Total</th>
-
+													<th>Nama Siswa</th>
+													<th>Kelas</th>
+													<th>Nilai Pengetahuan</th>
+													<th>Nilai Keterampilan</th>
+													<th>Nilai PTS</th>
+													<th>Nilai PAS</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
@@ -122,33 +103,47 @@
 												<tr>
 													<th>No.</th>
 													<th>Nis</th>
-													<th>Nama</th>
-													<th>Total</th>
+													<th>Nama Siswa</th>
+													<th>Kelas</th>
+													<th>Nilai Pengetahuan</th>
+													<th>Nilai Keterampilan</th>
+													<th>Nilai PTS</th>
+													<th>Nilai PAS</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</tfoot>
 											<tbody>
 												<?php
 												$no = 0;
-												foreach ($siswa->result_array() as $row) :
+												foreach ($data_kelas->result_array() as $row) :
 
 													$no++;
-													$id_siswa               = $row['id_siswa'];
+													
 													$nis           = $row['nis'];
 													$nama_siswa = $row['nama_siswa'];
-													$total = '0';
+													$kelas = $row['kelas'];
+													$nilai_pengetahuan = $row['nilai_pengetahuan'];
+													$nilai_keterampilan = $row['nilai_keterampilan'];
+													$nilai_pts = $row['nilai_pts'];
+													$nilai_pas = $row['nilai_pas'];
 													
 													?>
 													<tr>
 														<td><?php echo $no;?></td>
 														<td><?php echo $nis;?></td>
 														<td><?php echo $nama_siswa;?></td>
-														<td><?php echo $total;?></td>
-														
+														<td><?php echo $kelas;?></td>
+														<td><?php echo $nilai_pengetahuan;?></td>
+														<td><?php echo $nilai_keterampilan;?></td>
+														<td><?php echo $nilai_pts;?></td>
+														<td><?php echo $nilai_pas;?></td>
 														<td>
 															<div class="form-button-action">
-																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_siswa;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+																<button type="button" data-toggle="modal" data-target="#edit<?php echo $nis;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 																	<i class="fa fa-edit"></i>
+																</button>
+																<button type="button" data-toggle="modal" data-target="#edit<?php echo $nis;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+																	<i class="fa fa-s"></i>
 																</button>
 															</div>
 														</td>
@@ -164,20 +159,22 @@
 				</div>
 			</div>
 
-
 			<!-- edit -->
 			<?php
 			$no = 0;
-			foreach ($siswa->result_array() as $row) :
+			foreach ($data_kelas->result_array() as $row) :
 
 				$no++;
-
-				$id_siswa               = $row['id_siswa'];
-				$nis           = $row['nis'];
+				$nis               = $row['nis'];
 				$nama_siswa = $row['nama_siswa'];
+				$kelas           = $row['kelas'];
+				$nilai_pas         = $row['nilai_pas'];
+
+
+				
 
 				?>
-				<div class="modal fade" id="edit<?php echo $id_siswa;?>" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="edit<?php echo $nis;?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header no-bd">
@@ -196,8 +193,8 @@
 							</div>
 							<div class="modal-body">
 								<p class="small">Isikan semua data dengan benar.</p>
-								<form action="<?php echo base_url('Homepage/Nilai_pembelajaran/update') ?>" method="POST">
-									<span class="badge badge-primary mb-4">Data Diri</span>
+								<form action="<?php echo base_url('Homepage/Nilai_mapel/update') ?>" method="POST">
+									<span class="badge badge-primary mb-4">Data Nilai</span>
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
@@ -213,41 +210,47 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 											<div class="form-group form-group-default">
 												<label>Nilai Pengetahuan</label>
-												<input type="text" name="nilai_pengetahuan" class="form-control">
+												<input type="number" name="nilai_pengetahuan" class="form-control">
 											</div>
 										</div>
-										<div class="col-sm-6">
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
 											<div class="form-group form-group-default">
 												<label>Nilai Keterampilan</label>
-												<input type="text" name="nilai_pengetahuan" class="form-control">
+												<input type="number" name="nilai_keterampilan" class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 											<div class="form-group form-group-default">
 												<label>Nilai PTS</label>
-												<input type="text" name="nilai_pts" class="form-control">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nilai PAS</label>
-												<input type="text" name="nilai_pas" class="form-control">
+												<input type="number" name="nilai_pts" class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-sm-12">
+											<div class="form-group form-group-default">
+												<label>Nilai PAS</label>
+												<input type="number" name="nilai_pas" class="form-control" value="<?php echo $nilai_pas;?>">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
 											<div class="form-group form-group-default">
 												<label>Deskripsi</label>
 												<textarea class="form-control" name="deskripsi"></textarea>
 											</div>
 										</div>
 									</div>
+
+
 
 								</div>
 								<style type="text/css">
@@ -269,8 +272,7 @@
 			<?php endforeach;?>
 			<!-- end edit -->
 
-
-
+			
 			<!-- end hapus -->
 			<?php include 'Part/Footer.php';?>
 		</div>

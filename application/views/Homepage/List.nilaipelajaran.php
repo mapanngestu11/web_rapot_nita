@@ -34,7 +34,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">E-RAPOT</h4>
+						<h4 class="page-title">E-RAPOR</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -58,6 +58,7 @@
 					<div class="row">
 
 						<div class="col-md-12">
+							
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
@@ -97,9 +98,15 @@
 																	<label>Nama Kelas</label>
 																	<select class="form-control" name="nama_kelas" required="">
 																		<option value=""> Pilih </option>
-																		<option value="7"> 7 </option>
-																		<option value="8"> 8 </option>
-																		<option value="9"> 9 </option>
+																		<?php
+																		$no = 0;
+																		foreach ($data_kelas->result_array() as $row) :
+																			$nama_kelas = $row['nama_kelas'];
+
+
+																			?>
+																			<option value="<?php echo $nama_kelas;?>"><?php echo $nama_kelas;?></option>
+																		<?php endforeach;?>
 																	</select>
 																</div>
 															</div>
@@ -108,8 +115,15 @@
 																	<label>Nama Guru</label>
 																	<select class="form-control" name="nama_guru" required="">
 																		<option value=""> Pilih </option>
-																		<option value="Budi"> Budi </option>
-																		<option value="Ujang"> Ujang </option>
+																		<?php
+																		$no = 0;
+																		foreach ($data_guru->result_array() as $row) :
+																			$nama_guru = $row['nama_guru'];
+
+
+																			?>
+																			<option value="<?php echo $nama_guru;?>"><?php echo $nama_guru;?></option>
+																		<?php endforeach;?>
 																	</select>
 																</div>
 															</div>
@@ -120,9 +134,15 @@
 																	<label>Mapel</label>
 																	<select class="form-control" name="mapel" required="">
 																		<option value=""> Pilih </option>
-																		<option value="Bahasa Indonesia">Bahasa Indonesia</option>
-																		<option value="MTK"> MTK </option>
-																		<option value="IPA"> IPA </option>
+																		<?php
+																		$no = 0;
+																		foreach ($data_mapel->result_array() as $row) :
+																			$nama_mapel = $row['nama_mapel'];
+
+
+																			?>
+																			<option value="<?php echo $nama_mapel;?>"><?php echo $nama_mapel;?></option>
+																		<?php endforeach;?>
 																	</select>
 																</div>
 															</div>
@@ -258,9 +278,15 @@
 												<label>Nama Kelas</label>
 												<select class="form-control" name="nama_kelas" required="">
 													<option value="<?php echo $nama_kelas;?>"> <?php echo $nama_kelas;?> </option>
-													<option value="7"> 7 </option>
-													<option value="8"> 8 </option>
-													<option value="9"> 9 </option>
+													<?php
+													$no = 0;
+													foreach ($data_kelas->result_array() as $row) :
+														$nama_kelas = $row['nama_kelas'];
+
+
+														?>
+														<option value="<?php echo $nama_kelas;?>"><?php echo $nama_kelas;?></option>
+													<?php endforeach;?>
 												</select>
 												<input type="hidden" name="id_kkm" value="<?php echo $id_kkm;?>">
 											</div>
@@ -270,8 +296,15 @@
 												<label>Nama Guru</label>
 												<select class="form-control" name="nama_guru" required="">
 													<option value="<?php echo $nama_guru;?>"> <?php echo $nama_guru;?> </option>
-													<option value="Budi"> Budi </option>
-													<option value="Ujang"> Ujang </option>
+													<?php
+													$no = 0;
+													foreach ($data_guru->result_array() as $row) :
+														$nama_guru = $row['nama_guru'];
+
+
+														?>
+														<option value="<?php echo $nama_guru;?>"><?php echo $nama_guru;?></option>
+													<?php endforeach;?>
 												</select>
 											</div>
 										</div>
@@ -282,9 +315,15 @@
 												<label>Mapel</label>
 												<select class="form-control" name="mapel" required="">
 													<option value="<?php echo $mapel;?>"> <?php echo $mapel;?> </option>
-													<option value="Bahasa Indonesia">Bahasa Indonesia</option>
-													<option value="MTK"> MTK </option>
-													<option value="IPA"> IPA </option>
+													<?php
+													$no = 0;
+													foreach ($data_mapel->result_array() as $row) :
+														$nama_mapel = $row['nama_mapel'];
+
+
+														?>
+														<option value="<?php echo $nama_mapel;?>"><?php echo $nama_mapel;?></option>
+													<?php endforeach;?>
 												</select>
 											</div>
 										</div>

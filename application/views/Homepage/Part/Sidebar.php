@@ -61,12 +61,12 @@
 						<div class="collapse" id="base">
 							<ul class="nav nav-collapse">
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/Data/Sekolah/') ?>">
 										<span class="sub-item">Data Sekolah</span>
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/Tapel/') ?>">
 										<span class="sub-item">Data Tahun Pelajaran</span>
 									</a>
 								</li>
@@ -76,7 +76,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/Mapel/') ?>">
 										<span class="sub-item">Data Mapel</span>
 									</a>
 								</li>
@@ -96,23 +96,15 @@
 										<span class="sub-item">Data Siswa</span>
 									</a>
 								</li>
+
 								<li>
-									<a href="#">
-										<span class="sub-item">Data Wali Kelas</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/Guru/') ?>">
 										<span class="sub-item">Data Guru</span>
 									</a>
 								</li>
+								
 								<li>
-									<a href="#">
-										<span class="sub-item">Data Wali Kelas</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/User/') ?>">
 										<span class="sub-item">Data Admin</span>
 									</a>
 								</li>
@@ -136,9 +128,15 @@
 							<ul class="nav nav-collapse">
 								<li>
 									<a href="<?php echo base_url('Homepage/Nilai_pembelajaran/') ?>">
-										<span class="sub-item">Input Nilai Pembelajaran</span>
+										<span class="sub-item">Input Nilai KKM</span>
 									</a>
 								</li>
+								<li>
+									<a href="<?php echo base_url('Homepage/Nilai_mapel/') ?>">
+										<span class="sub-item">Input Nilai Mapel</span>
+									</a>
+								</li>
+
 								<li>
 									<a href="#">
 										<span class="sub-item">Nilai Sosial</span>

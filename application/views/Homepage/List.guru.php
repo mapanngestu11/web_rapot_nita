@@ -89,76 +89,23 @@
 												</div>
 												<div class="modal-body">
 													<p class="small">Isikan semua data dengan benar.</p>
-													<form action="<?php echo base_url('Homepage/Siswa/add') ?>" method="POST">
-														<span class="badge badge-primary mb-4">Data Diri</span>
+													<form action="<?php echo base_url('Homepage/Guru/add') ?>" method="POST">
+														<span class="badge badge-primary mb-4">Data Guru</span>
 														<div class="row">
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
-																	<label>Nis</label>
-																	<input type="text" name="nis" class="form-control" placeholder="Nis" required="">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Nisn</label>
-																	<input name="nisn" type="text" class="form-control" placeholder="Nisn" required="">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Nama Siswa</label>
-																	<input name="nama_siswa" type="text" class="form-control" placeholder="Nama Siswa" required="">
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Kelas</label>
-																	<select class="form-control" name="kelas" required="">
-																		<option value=""> Pilih </option>
-																		<?php
-																		$no = 0;
-																		foreach ($data_kelas->result_array() as $row) :
-																			$nama_kelas = $row['nama_kelas'];
-
-
-																			?>
-																			<option value="<?php echo $nama_kelas;?>"><?php echo $nama_kelas;?></option>
-																		<?php endforeach;?>
-																	</select>
+																	<label>Nama Guru</label>
+																	<input type="text" name="nama_guru" class="form-control" placeholder="Nama Lengkap" required="">
 																</div>
 															</div>
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
 																	<label>Jenis Kelamin</label>
-																	<select class="form-control" name="jenis_kelamin" required="">
+																	<select class="form-control" name="jenis_kelamin">
 																		<option value=""> Pilih </option>
-																		<option value="Laki - Laki"> Laki - Laki</option>
+																		<option value="Laki-laki"> Laki-laki </option>
 																		<option value="Perempuan"> Perempuan </option>
 																	</select>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Jenis Pendaftaran</label>
-																	<select class="form-control" name="jenis_pendaftaran" required="">
-																		<option value=""> Pilih </option>
-																		<option value="Siswa Baru"> Siswa Baru </option>
-																		<option value="Siswa Pindahan"> Siswa Pindahan </option>
-																	</select>
-																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-sm-12">
-																<div class="form-group form-group-default">
-																	<label>Penerimaan Data</label>
-																	<input type="date" name="penerimaan_data" class="form-control" required="">
 																</div>
 															</div>
 														</div>
@@ -166,108 +113,82 @@
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
 																	<label>Tempat Lahir</label>
-																	<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" required ="">
+																	<input name="tempat_lahir" type="text" class="form-control" placeholder="Tempat Lahir" required="">
 																</div>
 															</div>
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
 																	<label>Tanggal Lahir</label>
-																	<input type="date" name="tanggal_lahir" class="form-control" required="">
+																	<input name="tanggal_lahir" type="date" class="form-control" placeholder="" required="">
 																</div>
 															</div>
 														</div>
 														<div class="row">
 															<div class="col-sm-12">
 																<div class="form-group form-group-default">
-																	<label>Agama</label>
-																	<select class="form-control" name="agama" required="">
-																		<option value=""> Pilih </option>
-																		<option value="Islam"> Islam </option>
-																		<option value="Protestan"> Protestan </option>
-																		<option value="Katolik"> Katolik </option>
-																		<option value="Hindu"> Hindu </option>
-																		<option value="Buddha"> Buddha </option>
-																	</select>
+																	<label>Nomor Telp.</label>
+																	<input name="telepon" type="text" class="form-control" placeholder="(Opsional)">
 																</div>
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-sm-6">
+															<div class="col-sm-12">
 																<div class="form-group form-group-default">
 																	<label>Alamat</label>
-																	<textarea class="form-control" name="alamat" rows="3"></textarea>
+																	<textarea class="form-control" name="alamat" placeholder="Alamat Tinggal"></textarea>
 																</div>
 															</div>
-															<div class="row">
-																<div class="col-sm-6">
-																	<div class="form-group form-group-default">
-																		<label>Nomor Telp.</label>
-																		<input type="text" name="telepon" class="form-control" required="" placeholder="Nomor Telp.">
-																	</div>
-																</div>
-																<div class="col-sm-6">
-																	<div class="form-group form-group-default">
-																		<label>Anak Ke-</label>
-																		<input type="text" name="anak_ke" class="form-control" required="" placeholder="Anak Ke-">
-																	</div>
-																</div>
-															</div>
+														</div>
+														<div class="row">
 															<div class="col-sm-12">
 																<div class="form-group form-group-default">
-																	<label>Status dalam keluarga</label>
-																	<select class="form-control" name="status_keluarga">
+																	<label>Mata Pelajaran</label>
+																	<select class="form-control" name="mapel" required="">
 																		<option value=""> Pilih </option>
-																		<option value="Anak Kandung"> Anak Kandung </option>
-																		<option value="Anak Angkat"> Anak Angkat </option>
-																		<option value="Anak Tiri"> Anak Tiri </option>
+																		
+
+																		<?php
+																		$no = 0;
+																		foreach ($data_mapel->result_array() as $row) :
+																			$nama_mapel = $row['nama_mapel'];
+
+
+																			?>
+																			<option value="<?php echo $nama_mapel;?>"><?php echo $nama_mapel;?></option>
+																		<?php endforeach;?>
 																	</select>
 																</div>
 															</div>
 														</div>
-														<span class="badge badge-primary mb-4">Data Keluarga</span>
 														<div class="row">
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
-																	<label>Nama Ayah</label>
-																	<input type="text" name="nama_ayah" class="form-control" required="" placeholder="Nama Ayah">
+																	<label>Username</label>
+																	<input name="username" type="text" class="form-control" placeholder="Username" autocomplete="off">
 																</div>
 															</div>
 															<div class="col-sm-6">
 																<div class="form-group form-group-default">
-																	<label>Nama Ibu</label>
-																	<input type="text" name="nama_ibu" class="form-control" required="" placeholder="Nama Ibu">
+																	<label>Password</label>
+																	<input name="password" type="password" class="form-control" placeholder="*****" autocomplete="off">
 																</div>
 															</div>
 														</div>
 														<div class="row">
-															<div class="col-sm-6">
+															<div class="col-sm-12">
 																<div class="form-group form-group-default">
-																	<label>Pekerjaan Ayah</label>
-																	<input type="text" name="pekerjaan_ayah" class="form-control" required="" placeholder="Pekerjaan Ayah">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Pekerjaan Ibu</label>
-																	<input type="text" name="pekerjaan_ibu" class="form-control" required="" placeholder="Pekerjaan Ibu">
-																</div>
-															</div>
-														</div>
-														<span class="badge badge-primary mb-4">Data Wali</span>
-														<div class="row">
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Nama Wali</label>
-																	<input type="text" name="nama_wali" class="form-control" placeholder="Nama Wali">
-																</div>
-															</div>
-															<div class="col-sm-6">
-																<div class="form-group form-group-default">
-																	<label>Pekerjaan Wali</label>
-																	<input type="text" name="pekerjaan_wali" class="form-control" placeholder="Pekerjaan Wali">
+																	<label>Hak Akses</label>
+																	<select class="form-control" name="hak_akses" required="">
+																		<option value=""> Pilih </option>
+																		<option value="Guru"> Guru </option>
+																		<option value="Walas"> Walas </option>
+																		<option value="Kepsek"> Kepsek </option>
+																		<option value="Kurikulumm"> Kurikulumm </option>
+																	</select>
 																</div>
 															</div>
 														</div>
+
 													</div>
 													<style type="text/css">
 														.thick-hr {
@@ -291,51 +212,49 @@
 											<thead>
 												<tr>
 													<th>No.</th>
-													<th>Nisn</th>
-													<th>Nama Siswa</th>
+													<th>Nama Guru</th>
 													<th>Jenis Kelamin</th>
-													<th>Kelas</th>
+													<th>Mapel</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
 											<tfoot>
 												<tr>
 													<th>No.</th>
-													<th>Nisn</th>
-													<th>Nama Siswa</th>
+													<th>Nama Guru</th>
 													<th>Jenis Kelamin</th>
-													<th>Kelas</th>
+													<th>Mapel</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</tfoot>
 											<tbody>
 												<?php
 												$no = 0;
-												foreach ($siswa->result_array() as $row) :
+												foreach ($data_guru->result_array() as $row) :
 
 													$no++;
-													$id_siswa               = $row['id_siswa'];
-													$nisn           = $row['nisn'];
-													$nama_siswa = $row['nama_siswa'];
+													$id_guru               = $row['id_guru'];
+													$nama_guru           = $row['nama_guru'];
 													$jenis_kelamin = $row['jenis_kelamin'];
-													$kelas =  $row['kelas'];
-													
+													$mapel = $row['mapel'];
+
 													?>
 													<tr>
 														<td><?php echo $no;?></td>
-														<td><?php echo $nisn;?></td>
-														<td><?php echo $nama_siswa;?></td>
+														<td><?php echo $nama_guru;?></td>
 														<td><?php echo $jenis_kelamin;?></td>
-														<td><?php echo $kelas;?></td>
+														<td><?php echo $mapel;?></td>
+
 														<td>
 															<div class="form-button-action">
-																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_siswa;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_guru;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 																	<i class="fa fa-edit"></i>
 																</button>
-																<button type="button" data-toggle="modal" data-target="#hapus<?php echo $id_siswa;?>" title="" class="btn btn-link btn-danger" data-original-title="Hapus Data">
+																<button type="button" data-toggle="modal" data-target="#hapus<?php echo $id_guru;?>" title="" class="btn btn-link btn-danger" data-original-title="Hapus Data">
 																	<i class="fa fa-times"></i>
 																</button>
 															</div>
+															
 														</td>
 													</tr>
 												<?php endforeach;?>
@@ -353,38 +272,23 @@
 			<!-- edit -->
 			<?php
 			$no = 0;
-			foreach ($siswa->result_array() as $row) :
+			foreach ($data_guru->result_array() as $row) :
 
 				$no++;
-				$id_siswa               = $row['id_siswa'];
-				$nama_siswa = $row['nama_siswa'];
-				$kelas           = $row['kelas'];
-				$jenis_kelamin 			= $row['jenis_kelamin'];
-				$jenis_pendaftaran 			= $row['jenis_pendaftaran'];
-				$penerimaan_data 			= $row['penerimaan_data'];
+				$id_guru               = $row['id_guru'];
+				$nama_guru	= $row['nama_guru'];
+				$jenis_kelamin = $row['jenis_kelamin'];
+				$tempat_lahir = $row['tempat_lahir'];
+				$tanggal_lahir = $row['tanggal_lahir'];
+				$telepon = $row['telepon'];
 
-				$nis 			= $row['nis'];
-				$nisn 			= $row['nisn'];
-				$tempat_lahir 			= $row['tempat_lahir'];
-				$tanggal_lahir 			= $row['tanggal_lahir'];
-				$agama 			= $row['agama'];
-
-				$status_keluarga 			= $row['status_keluarga'];
-				$anak_ke 			= $row['anak_ke'];
-				$alamat 			= $row['alamat'];
-				$telepon 			= $row['telepon'];
-				$nama_ayah 			= $row['nama_ayah'];
-
-				$nama_ibu 			= $row['nama_ibu'];
-				$pekerjaan_ayah 			= $row['pekerjaan_ayah'];
-				$pekerjaan_ibu 			= $row['pekerjaan_ibu'];
-				$nama_wali 			= $row['nama_wali'];
-				$pekerjaan_wali 			= $row['pekerjaan_wali'];
-
-				$jenis_kelamin 			= $row['jenis_kelamin'];
+				$alamat = $row['alamat'];
+				$mapel = $row['mapel'];
+				$username = $row['username'];
+				$hak_akses = $row['hak_akses'];
 
 				?>
-				<div class="modal fade" id="edit<?php echo $id_siswa;?>" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="edit<?php echo $id_guru;?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header no-bd">
@@ -403,77 +307,24 @@
 							</div>
 							<div class="modal-body">
 								<p class="small">Isikan semua data dengan benar.</p>
-								<form action="<?php echo base_url('Homepage/Siswa/update') ?>" method="POST">
-									<span class="badge badge-primary mb-4">Data Diri</span>
+								<form action="<?php echo base_url('Homepage/Guru/update') ?>" method="POST">
+									<span class="badge badge-primary mb-4">Data Guru</span>
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
-												<label>Nis</label>
-												<input type="text" name="nis" class="form-control" placeholder="Nis" value="<?php echo $nis;?>">
-												<input type="hidden" name="id_siswa" value="<?php echo $id_siswa;?>">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nisn</label>
-												<input name="nisn" type="text" class="form-control" placeholder="Nisn" value="<?php echo $nisn;?>">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nama Siswa</label>
-												<input name="nama_siswa" type="text" class="form-control" placeholder="Nama Siswa" value="<?php echo $nama_siswa;?>">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Kelas</label>
-												<select class="form-control" name="kelas" required="">
-													<option value=""> Pilih </option>
-													<option value="<?php echo $kelas;?>"> <?php echo $kelas;?> </option>
-													<?php
-													$no = 0;
-													foreach ($data_kelas->result_array() as $row) :
-														$nama_kelas = $row['nama_kelas'];
-
-														?>
-														<option value="<?php echo $nama_kelas;?>"><?php echo $nama_kelas;?></option>
-													<?php endforeach;?>
-												</select>
+												<label>Nama Guru</label>
+												<input type="text" name="nama_guru" class="form-control" placeholder="Nama Lengkap" value="<?php echo $nama_guru;?>">
+												<input type="hidden" name="id_guru" value="<?php echo $id_guru;?>">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
 												<label>Jenis Kelamin</label>
-												<select class="form-control" name="jenis_kelamin" required="">
+												<select class="form-control" name="jenis_kelamin">
 													<option value="<?php echo $jenis_kelamin;?>"> <?php echo $jenis_kelamin;?> </option>
-													<option value="Laki - Laki"> Laki - Laki</option>
+													<option value="Laki-laki"> Laki-laki </option>
 													<option value="Perempuan"> Perempuan </option>
 												</select>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Jenis Pendaftaran</label>
-												<select class="form-control" name="jenis_pendaftaran" required="">
-													<option value="<?php echo $jenis_pendaftaran;?>"> <?php echo $jenis_pendaftaran;?> </option>
-													<option value="Siswa Baru"> Siswa Baru </option>
-													<option value="Siswa Pindahan"> Siswa Pindahan </option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Penerimaan Data</label>
-												<input type="date" name="penerimaan_data" class="form-control" value="<?php echo $penerimaan_data;?>">
 											</div>
 										</div>
 									</div>
@@ -481,108 +332,81 @@
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
 												<label>Tempat Lahir</label>
-												<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?php echo $tempat_lahir;?>">
+												<input name="tempat_lahir" type="text" class="form-control" value="<?php echo $tempat_lahir;?>">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
 												<label>Tanggal Lahir</label>
-												<input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $tanggal_lahir;?>">
+												<input name="tanggal_lahir" type="date" class="form-control" placeholder="" required="" value="<?php echo $tanggal_lahir;?>">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Agama</label>
-												<select class="form-control" name="agama" required="">
-													<option value="<?php echo $agama;?>"> <?php echo $agama;?> </option>
-													<option value="Islam"> Islam </option>
-													<option value="Protestan"> Protestan </option>
-													<option value="Katolik"> Katolik </option>
-													<option value="Hindu"> Hindu </option>
-													<option value="Buddha"> Buddha </option>
-												</select>
+												<label>Nomor Telp.</label>
+												<input name="telepon" type="text" class="form-control" placeholder="(Opsional)" value="<?php echo $telepon;?>">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 											<div class="form-group form-group-default">
 												<label>Alamat</label>
-												<textarea class="form-control" name="alamat" rows="3"><?php echo $alamat;?></textarea>
+												<textarea class="form-control" name="alamat" placeholder="Alamat Tinggal"><?php echo $alamat;?></textarea>
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-sm-6">
-												<div class="form-group form-group-default">
-													<label>Nomor Telp.</label>
-													<input type="text" name="telepon" class="form-control" placeholder="Anak Ke-" value="<?php echo $telepon;?>">
-												</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="form-group form-group-default">
-													<label>Anak Ke-</label>
-													<input type="text" name="anak_ke" class="form-control" required="" value="<?php echo $anak_ke;?>">
-												</div>
-											</div>
-										</div>
+									</div>
+									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Status dalam keluarga</label>
-												<select class="form-control" name="status_keluarga">
-													<option value="<?php echo $status_keluarga;?>"> <?php echo $status_keluarga;?> </option>
-													<option value="Anak Kandung"> Anak Kandung </option>
-													<option value="Anak Angkat"> Anak Angkat </option>
-													<option value="Anak Tiri"> Anak Tiri </option>
+												<label>Mata Pelajaran</label>
+												<select class="form-control" name="mapel" required="">
+													<option value="<?php echo  $mapel;?>"> <?php echo  $mapel;?> </option>
+													
+													<?php
+													$no = 0;
+													foreach ($data_mapel->result_array() as $row) :
+														$nama_mapel = $row['nama_mapel'];
+
+
+														?>
+														<option value="<?php echo $nama_mapel;?>"><?php echo $nama_mapel;?></option>
+													<?php endforeach;?>
 												</select>
 											</div>
 										</div>
 									</div>
-									<span class="badge badge-primary mb-4">Data Keluarga</span>
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
-												<label>Nama Ayah</label>
-												<input type="text" name="nama_ayah" class="form-control" value="<?php echo $nama_ayah;?>" placeholder="Nama Ayah">
+												<label>Username</label>
+												<input name="username" type="text" class="form-control" value="<?php echo $username;?>">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
-												<label>Nama Ibu</label>
-												<input type="text" name="nama_ibu" class="form-control" required="" value="<?php echo $nama_ibu;?>">
+												<label>Password</label>
+												<input name="password" type="password" class="form-control" placeholder="*****" autocomplete="off">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Pekerjaan Ayah</label>
-												<input type="text" name="pekerjaan_ayah" class="form-control" required="" value="<?php echo $pekerjaan_ayah;?>">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Pekerjaan Ibu</label>
-												<input type="text" name="pekerjaan_ibu" class="form-control" required="" value="<?php echo $pekerjaan_ibu;?>">
-											</div>
-										</div>
-									</div>
-									<span class="badge badge-primary mb-4">Data Wali</span>
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nama Wali</label>
-												<input type="text" name="nama_wali" class="form-control" value="<?php echo $nama_wali;?>">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Pekerjaan Wali</label>
-												<input type="text" name="pekerjaan_wali" class="form-control" value="<?php echo $pekerjaan_wali;?>">
+												<label>Hak Akses</label>
+												<select class="form-control" name="hak_akses" required="">
+													<option value="<?php echo  $hak_akses;?>"> <?php echo  $hak_akses;?> </option>
+													<option value="Guru"> Guru </option>
+													<option value="Walas"> Walas </option>
+													<option value="Kepsek"> Kepsek </option>
+													<option value="Kurikulumm"> Kurikulumm </option>
+												</select>
 											</div>
 										</div>
 									</div>
+
 								</div>
 								<style type="text/css">
 									.thick-hr {
@@ -593,7 +417,7 @@
 								</style>
 								<hr class="thick-hr">
 								<div class="modal-footer no-bd">
-									<button type="submit" class="btn btn-primary">Add</button>
+									<button type="submit" class="btn btn-primary">Updata Data</button>
 									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 								</div>
 							</form>
@@ -603,17 +427,16 @@
 			<?php endforeach;?>
 			<!-- end edit -->
 
-
 			<!-- hapus -->
 			<?php
 			$no = 0;
-			foreach ($siswa->result_array() as $row) :
+			foreach ($data_guru->result_array() as $row) :
 
 				$no++;
-				$id_siswa               = $row['id_siswa'];
-				$nama_siswa 			= $row['nama_siswa'];
+				$id_guru               = $row['id_guru'];
+				$nama_guru 			= $row['nama_guru'];
 				?>
-				<div class="modal fade" id="hapus<?php echo $id_siswa;?>" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="hapus<?php echo $id_guru;?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header no-bd">
@@ -632,9 +455,9 @@
 							</div>
 							<div class="modal-body">
 
-								<form action="<?php echo base_url('Homepage/Siswa/delete') ?>" method="POST">
-									<p>Apakah kamu yakin ingin menghapus data siswa, <strong><?php echo $nama_siswa;?> ?</strong></p>
-									<input type="hidden" name="id_siswa" value="<?php echo $id_siswa;?>">
+								<form action="<?php echo base_url('Homepage/Guru/delete') ?>" method="POST">
+									<p>Apakah kamu yakin ingin menghapus data guru, <strong><?php echo $nama_guru;?> ?</strong></p>
+									<input type="hidden" name="id_guru" value="<?php echo $id_guru;?>">
 								</div>
 								<style type="text/css">
 									.thick-hr {
@@ -654,6 +477,7 @@
 				</div>
 			<?php endforeach;?>
 			<!-- end hapus -->
+
 			<?php include 'Part/Footer.php';?>
 		</div>
 

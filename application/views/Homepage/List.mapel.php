@@ -34,7 +34,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">E-Rapor</h4>
+						<h4 class="page-title">E-RAPOR</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -56,99 +56,117 @@
 						</ul>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="d-flex align-items-center">
-										<h4 class="card-title">Informasi Data Pelajaran</h4>
-									</div>
-								</div>
-								<div class="card-body">
-									<table class="table">
-										<tr>
-											<td style="width: 15%">Mata Pelajaran</td>
-											<td style="width: 2%">:</td>
-											<td>Bahasa Indonesia</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">Kelas</td>
-											<td style="width: 2%">:</td>
-											<td>7</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">KKM</td>
-											<td style="width: 2%">:</td>
-											<td>70</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">Guru Pengampu</td>
-											<td style="width: 2%">:</td>
-											<td>Pak Budi</td>
-										</tr>
-										<tr>
-											<td style="width: 15%">Tahun Pelajaran</td>
-											<td style="width: 2%">:</td>
-											<td>2024 / 2025</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-						</div>
+
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
 										<h4 class="card-title"><?php echo $table;?></h4>
-										
+										<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+											<i class="fa fa-plus"></i>
+											Tambah Data
+										</button>
 									</div>
 								</div>
 								<div class="card-body">
 									<!-- Modal -->
+									<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+										<div class="modal-dialog modal-lg" role="document">
+											<div class="modal-content">
+												<div class="modal-header no-bd">
+													<h5 class="modal-title">
+														<strong>
+															<span class="fw-mediumbold">
+															Tambah</span> 
+															<span class="fw-light">
+																<?php echo $button;?>
+															</span>
+														</strong>
+													</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<p class="small">Isikan semua data dengan benar.</p>
+													<form action="<?php echo base_url('Homepage/Mapel/add') ?>" method="POST">
+														<span class="badge badge-primary mb-4">Data Mapel</span>
+														<div class="row">
+															<div class="col-sm-6">
+																<div class="form-group form-group-default">
+																	<label>Nama Mata Pelajaran</label>
+																	<input type="text" name="nama_mapel" class="form-control" placeholder="Nama Mapel" required="">
+																</div>
+															</div>
+															<div class="col-sm-6">
+																<div class="form-group form-group-default">
+																	<label>Singkatan</label>
+																	<input type="text" name="singkatan" class="form-control" placeholder="Singkatan" required="">
+																</div>
+															</div>
+														</div>
+														
 
+													</div>
+													<style type="text/css">
+														.thick-hr {
+															border: none;
+															height: 5px; /* Anda dapat mengubah nilai ini untuk menyesuaikan ketebalan */
+															background-color: black; /* Anda dapat mengubah warna ini sesuai keinginan */
+														}
+													</style>
+													<hr class="thick-hr">
+													<div class="modal-footer no-bd">
+														<button type="submit" class="btn btn-primary">Add</button>
+														<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
 
 									<div class="table-responsive">
 										<table id="add-row" class="display table table-striped table-hover" >
 											<thead>
 												<tr>
 													<th>No.</th>
-													<th>Nis</th>
-													<th>Nama</th>
-													<th>Total</th>
-
+													<th>Nama Mata Pelajaran</th>
+													<th>Singkatan</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
 											<tfoot>
 												<tr>
 													<th>No.</th>
-													<th>Nis</th>
-													<th>Nama</th>
-													<th>Total</th>
+													<th>Nama kelas</th>
+													<th>Tingkatan</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</tfoot>
 											<tbody>
 												<?php
 												$no = 0;
-												foreach ($siswa->result_array() as $row) :
+												foreach ($mapel->result_array() as $row) :
 
 													$no++;
-													$id_siswa               = $row['id_siswa'];
-													$nis           = $row['nis'];
-													$nama_siswa = $row['nama_siswa'];
-													$total = '0';
+													$id_mapel               = $row['id_mapel'];
+													$nama_mapel           = $row['nama_mapel'];
+													$singkatan = $row['singkatan'];
+													
+													
 													
 													?>
 													<tr>
 														<td><?php echo $no;?></td>
-														<td><?php echo $nis;?></td>
-														<td><?php echo $nama_siswa;?></td>
-														<td><?php echo $total;?></td>
-														
+														<td><?php echo $nama_mapel;?></td>
+														<td><?php echo $singkatan;?></td>
 														<td>
 															<div class="form-button-action">
-																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_siswa;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+																<button type="button" data-toggle="modal" data-target="#edit<?php echo $id_mapel;?>" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 																	<i class="fa fa-edit"></i>
+																</button>
+																<button type="button" data-toggle="modal" data-target="#hapus<?php echo $id_mapel;?>" title="" class="btn btn-link btn-danger" data-original-title="Hapus Data">
+																	<i class="fa fa-times"></i>
 																</button>
 															</div>
 														</td>
@@ -168,16 +186,14 @@
 			<!-- edit -->
 			<?php
 			$no = 0;
-			foreach ($siswa->result_array() as $row) :
+			foreach ($mapel->result_array() as $row) :
 
 				$no++;
-
-				$id_siswa               = $row['id_siswa'];
-				$nis           = $row['nis'];
-				$nama_siswa = $row['nama_siswa'];
-
+				$id_mapel               = $row['id_mapel'];
+				$nama_mapel           = $row['nama_mapel'];
+				$singkatan = $row['singkatan'];
 				?>
-				<div class="modal fade" id="edit<?php echo $id_siswa;?>" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal fade" id="edit<?php echo $id_mapel;?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 							<div class="modal-header no-bd">
@@ -196,55 +212,20 @@
 							</div>
 							<div class="modal-body">
 								<p class="small">Isikan semua data dengan benar.</p>
-								<form action="<?php echo base_url('Homepage/Nilai_pembelajaran/update') ?>" method="POST">
-									<span class="badge badge-primary mb-4">Data Diri</span>
+								<form action="<?php echo base_url('Homepage/Mapel/update') ?>" method="POST">
+									<span class="badge badge-primary mb-4">Data Mapel</span>
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
-												<label>Nis</label>
-												<input type="text" name="nis" class="form-control" value="<?php echo $nis;?>" readonly>
+												<label>Nama Mapel</label>
+												<input type="text" name="nama_mapel" class="form-control" placeholder="Nis" value="<?php echo $nama_mapel;?>">
+												<input type="hidden" name="id_mapel" value="<?php echo $id_mapel;?>">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group form-group-default">
-												<label>Nama Siswa</label>
-												<input type="text" name="nama_siswa" class="form-control" value="<?php echo $nama_siswa;?>" readonly>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nilai Pengetahuan</label>
-												<input type="text" name="nilai_pengetahuan" class="form-control">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nilai Keterampilan</label>
-												<input type="text" name="nilai_pengetahuan" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nilai PTS</label>
-												<input type="text" name="nilai_pts" class="form-control">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group form-group-default">
-												<label>Nilai PAS</label>
-												<input type="text" name="nilai_pas" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group form-group-default">
-												<label>Deskripsi</label>
-												<textarea class="form-control" name="deskripsi"></textarea>
+												<label>Singkatan</label>
+												<input name="singkatan" type="text" class="form-control" placeholder="Nisn" value="<?php echo $singkatan;?>">
 											</div>
 										</div>
 									</div>
@@ -270,7 +251,56 @@
 			<!-- end edit -->
 
 
+			<!-- hapus -->
+			<?php
+			$no = 0;
+			foreach ($mapel->result_array() as $row) :
 
+				$no++;
+				$id_mapel               = $row['id_mapel'];
+				$nama_mapel           = $row['nama_mapel'];
+				$singkatan = $row['singkatan'];
+				?>
+				<div class="modal fade" id="hapus<?php echo $id_mapel;?>" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header no-bd">
+								<h5 class="modal-title">
+									<strong>
+										<span class="fw-mediumbold">
+										Hapus</span> 
+										<span class="fw-light">
+											<?php echo $button;?>
+										</span>
+									</strong>
+								</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+
+								<form action="<?php echo base_url('Homepage/Mapel/delete') ?>" method="POST">
+									<p>Apakah kamu yakin ingin menghapus data mata pelajaran, <strong><?php echo $nama_mapel;?> ?</strong></p>
+									<input type="hidden" name="id_mapel" value="<?php echo $id_mapel;?>">
+								</div>
+								<style type="text/css">
+									.thick-hr {
+										border: none;
+										height: 5px; /* Anda dapat mengubah nilai ini untuk menyesuaikan ketebalan */
+										background-color: black; /* Anda dapat mengubah warna ini sesuai keinginan */
+									}
+								</style>
+								<hr class="thick-hr">
+								<div class="modal-footer no-bd">
+									<button type="submit" class="btn btn-primary">Ya</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			<?php endforeach;?>
 			<!-- end hapus -->
 			<?php include 'Part/Footer.php';?>
 		</div>

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="<?php echo base_url() . "assets/login/"; ?>css/style.css">
 
   <link rel="shortcut icon" href="<?php echo base_url() . "assets/login/"; ?>images/logo.png" type="image/png">
-  <title>LOGIN E-RAPOT | SMK BANI USMAN MANUNGGAL</title>
+  <title>LOGIN E-RAPOR | SMK BANI USMAN MANUNGGAL</title>
 </head>
 <body>
 
@@ -40,7 +40,7 @@
             <div class="col-md-8">
               <div class="mb-4">
                 <img src="<?php echo base_url() . "assets/login/"; ?>images/logo.png" alt="navbar brand" class="icon_sekolah">
-                <h3>Login E-RAPORT</h3>
+                <h3>Login E-RAPOR</h3>
                 <h5 style="font-weight: bold;">SMK BANI USMAN MANUNGGAL</h5>
                 <p class="mb-4">Login menggunakan akun terdaftar</p>
               </div>

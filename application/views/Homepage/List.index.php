@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Data Rapot | SMK Bani Usman Manunggal </title>
+	<title>Data Rapor | SMK Bani Usman Manunggal </title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="<?php echo base_url() . "assets/login/"; ?>images/logo.png" type="image/x-icon"/>
 
