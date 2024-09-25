@@ -138,12 +138,12 @@
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/Nilai_sosial/') ?>">
 										<span class="sub-item">Nilai Sosial</span>
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Homepage/Nilai_spiritual/') ?>">
 										<span class="sub-item">Nilai Spiritual</span>
 									</a>
 								</li>

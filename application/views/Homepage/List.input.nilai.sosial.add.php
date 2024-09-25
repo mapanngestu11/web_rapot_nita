@@ -92,10 +92,8 @@
 													<th>Nis</th>
 													<th>Nama Siswa</th>
 													<th>Kelas</th>
-													<th>Nilai Pengetahuan</th>
-													<th>Nilai Keterampilan</th>
-													<th>Nilai PTS</th>
-													<th>Nilai PAS</th>
+													<th>Predikat</th>
+													
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
@@ -105,10 +103,8 @@
 													<th>Nis</th>
 													<th>Nama Siswa</th>
 													<th>Kelas</th>
-													<th>Nilai Pengetahuan</th>
-													<th>Nilai Keterampilan</th>
-													<th>Nilai PTS</th>
-													<th>Nilai PAS</th>
+													<th>Predikat</th>
+													
 													<th style="width: 10%">Action</th>
 												</tr>
 											</tfoot>
@@ -122,10 +118,8 @@
 													$nis           = $row['nis'];
 													$nama_siswa = $row['nama_siswa'];
 													$kelas = $row['kelas'];
-													$nilai_pengetahuan = $row['nilai_pengetahuan'];
-													$nilai_keterampilan = $row['nilai_keterampilan'];
-													$nilai_pts = $row['nilai_pts'];
-													$nilai_pas = $row['nilai_pas'];
+													$predikat = $row['predikat'];
+
 													
 													?>
 													<tr>
@@ -133,10 +127,8 @@
 														<td><?php echo $nis;?></td>
 														<td><?php echo $nama_siswa;?></td>
 														<td><?php echo $kelas;?></td>
-														<td><?php echo $nilai_pengetahuan;?></td>
-														<td><?php echo $nilai_keterampilan;?></td>
-														<td><?php echo $nilai_pts;?></td>
-														<td><?php echo $nilai_pas;?></td>
+														<td><?php echo $predikat;?></td>
+
 														<td>
 															<div class="form-button-action">
 																<button type="button" data-toggle="modal" data-target="#info<?php echo $nis;?>" title="" class="btn btn-link btn-warning btn-lg" data-original-title="Edit Task">
@@ -169,7 +161,7 @@
 				$nis               = $row['nis'];
 				$nama_siswa = $row['nama_siswa'];
 				$kelas           = $row['kelas'];
-				$nilai_pas         = $row['nilai_pas'];
+				$predikat         = $row['predikat'];
 
 
 				
@@ -194,7 +186,7 @@
 							</div>
 							<div class="modal-body">
 								<p class="small">Isikan semua data dengan benar.</p>
-								<form action="<?php echo base_url('Homepage/Nilai_mapel/update') ?>" method="POST">
+								<form action="<?php echo base_url('Homepage/Nilai_spiritual/update') ?>" method="POST">
 									<span class="badge badge-primary mb-4">Data Nilai</span>
 									<div class="row">
 										<div class="col-sm-6">
@@ -213,35 +205,12 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Nilai Pengetahuan</label>
-												<input type="number" name="nilai_pengetahuan" class="form-control">
+												<label>Predikat</label>
+												<input type="text" name="predikat" class="form-control">
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nilai Keterampilan</label>
-												<input type="number" name="nilai_keterampilan" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nilai PTS</label>
-												<input type="number" name="nilai_pts" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nilai PAS</label>
-												<input type="number" name="nilai_pas" class="form-control">
-											</div>
-										</div>
-									</div>
+
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
@@ -283,10 +252,8 @@
 				$nis               = $row['nis'];
 				$nama_siswa = $row['nama_siswa'];
 				$kelas           = $row['kelas'];
-				$nilai_pas         = $row['nilai_pas'];
-				$nilai_pts = $row['nilai_pts'];
-				$nilai_pengetahuan = $row['nilai_pengetahuan'];
-				$nilai_keterampilan = $row['nilai_keterampilan'];
+				$predikat         = $row['predikat'];
+
 				$deskripsi = $row['deskripsi'];
 
 
@@ -312,7 +279,7 @@
 							</div>
 							<div class="modal-body">
 								<p class="small">Isikan semua data dengan benar.</p>
-								<form action="<?php echo base_url('Homepage/Nilai_mapel/update') ?>" method="POST">
+								<form action="<?php echo base_url('Homepage/Nilai_spiritual/update') ?>" method="POST">
 									<span class="badge badge-primary mb-4">Data Nilai</span>
 									<div class="row">
 										<div class="col-sm-6">
@@ -331,35 +298,12 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Nilai Pengetahuan</label>
-												<input type="number" name="nilai_pengetahuan" class="form-control" value="<?php echo $nilai_pengetahuan;?>" readonly>
+												<label>Predikat</label>
+												<input type="text" name="predikat" class="form-control" value="<?php echo $predikat;?>" readonly>
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nilai Keterampilan</label>
-												<input type="number" name="nilai_keterampilan" class="form-control" value="<?php echo $nilai_keterampilan;?>" readonly>
-											</div> 
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nilai PTS</label>
-												<input type="number" name="nilai_pts" class="form-control" value="<?php echo $nilai_pts;?>" readonly>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Nilai PAS</label>
-												<input type="number" name="nilai_pas" class="form-control" value="<?php echo $nilai_pas;?>" readonly>
-											</div>
-										</div>
-									</div>
+
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">

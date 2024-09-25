@@ -1,9 +1,9 @@
 <?php
-class M_nilai_mapel extends CI_Model
+class M_nilai_spiritual extends CI_Model
 {
 	
 
-	private $_table = "tabel_nilai_mapel";
+	private $_table = "tabel_nilai_spiritual";
 
 
 	function input_data($data, $table)
@@ -20,7 +20,7 @@ class M_nilai_mapel extends CI_Model
 	{
 		// var_dump($nis);
 		$this->db->select('*');
-		$this->db->from('tabel_nilai_mapel');
+		$this->db->from('tabel_nilai_spiritual');
 		$this->db->where('nis',$nis);
 		$query =  $this->db->get('');
 		return $query;

@@ -47,7 +47,7 @@ class Nilai_mapel  extends CI_Controller
    $data['button'] = 'Data Nilai Mapel';
    $data['table'] = 'Informasi Data Nilai Mata Pelajaran Mata Pelajaran';
    $mapel = NULL;
-   $data['data_kelas'] = $this->M_kelas->tampil_data_siswa_byclass($nama_kelas);
+   $data['data_kelas'] = $this->M_kelas->tampil_data_nilai_mapel_siswa_byclass($nama_kelas);
 
    $this->load->view('Homepage/List.input.nilai.mapel.add.php',$data);
  }
@@ -56,17 +56,52 @@ class Nilai_mapel  extends CI_Controller
  {
   date_default_timezone_set("Asia/Jakarta");
   $nis = $this->input->post('nis');
-  $nama_siswa = $this->input->post('nama_siswa');
-  $nilai_pengetahuan = $this->input->post('nilai_pengetahuan');
-  $nilai_keterampilan = $this->input->post('nilai_keterampilan');
-  $nilai_pts = $this->input->post('nilai_pts');
-  $nilai_pas = $this->input->post('nilai_pas');
-  $deskripsi = $this->input->post('deskripsi');
-  $mapel = 'IPA';
-  $id_guru = '1';
-  $waktu =  date('Y-m-d h:i:s');
+  // $nis = '7';
+  $cek = $this->M_nilai_mapel->cek_nis($nis)->result();
+  if ($cek != Null) {
+   $nis = $this->input->post('nis');
+   $nama_siswa = $this->input->post('nama_siswa');
+   $nilai_pengetahuan = $this->input->post('nilai_pengetahuan');
+   $nilai_keterampilan = $this->input->post('nilai_keterampilan');
+   $nilai_pts = $this->input->post('nilai_pts');
+   $nilai_pas = $this->input->post('nilai_pas');
+   $deskripsi = $this->input->post('deskripsi');
+   $mapel = 'IPA';
+   $id_guru = '1';
+   $waktu =  date('Y-m-d h:i:s');
 
-  $data = array(
+   $data = array(
+    'nis' => $nis,
+    'nama_siswa' => $nama_siswa,
+    'nilai_pengetahuan' => $nilai_pengetahuan,
+    'nilai_keterampilan' => $nilai_keterampilan,
+    'nilai_pts' => $nilai_pts,
+    'nilai_pas' => $nilai_pas,
+    'deskripsi' => $deskripsi,
+    'mapel' => $mapel,
+    'id_guru' => $id_guru,
+    'waktu' => $waktu
+  );
+   $where =  array(
+    'nis' => $nis
+  );
+
+   $this->M_nilai_mapel->update_data($where,$data, 'tabel_nilai_mapel');
+   echo $this->session->set_flashdata('msg', 'success');
+   redirect('Homepage/Nilai_mapel');
+ }else{
+   $nis = $this->input->post('nis');
+   $nama_siswa = $this->input->post('nama_siswa');
+   $nilai_pengetahuan = $this->input->post('nilai_pengetahuan');
+   $nilai_keterampilan = $this->input->post('nilai_keterampilan');
+   $nilai_pts = $this->input->post('nilai_pts');
+   $nilai_pas = $this->input->post('nilai_pas');
+   $deskripsi = $this->input->post('deskripsi');
+   $mapel = 'IPA';
+   $id_guru = '1';
+   $waktu =  date('Y-m-d h:i:s');
+
+   $data = array(
     'nis' => $nis,
     'nama_siswa' => $nama_siswa,
     'nilai_pengetahuan' => $nilai_pengetahuan,
@@ -79,9 +114,11 @@ class Nilai_mapel  extends CI_Controller
     'waktu' => $waktu
   );
 
-  $this->M_nilai_mapel->input_data($data, 'tabel_nilai_mapel');
-  echo $this->session->set_flashdata('msg', 'success');
-  redirect('Homepage/Nilai_mapel');
+   $this->M_nilai_mapel->input_data($data, 'tabel_nilai_mapel');
+   echo $this->session->set_flashdata('msg', 'success');
+   redirect('Homepage/Nilai_mapel');
+ }
+
 }
 
 
