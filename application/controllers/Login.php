@@ -10,7 +10,7 @@ class Login  extends CI_Controller
     $this->load->helper('form');
     $this->load->helper('url');
     $this->load->model('M_user');
-    // $this->load->model('M_siswa');
+    $this->load->model('M_siswa');
     $this->load->model('M_guru');
 
 
@@ -31,6 +31,70 @@ class Login  extends CI_Controller
 
     $u = $username;
     $p = $password;
+    $cek_user = $this->M_user->cek_user($u, $p)->result();
+    $cek_siswa = $this->M_siswa->cek_siswa($u,$p)->result();
+    $cek_guru  = $this->M_guru->cek_guru($u,$p)->result();
+
+    if ($cek_user != Null) {
+
+      $data_user = $this->M_user->cek_user($u, $p);
+      $this->session->set_userdata('masuk', true);
+      $this->session->set_userdata('user', $u);
+      $data_admin = $data_user->row_array();
+
+      $id = $data_admin['id_user'];
+      $nama_lengkap = $data_admin['nama_lengkap'];
+      $hak_akses = $data_admin['hak_akses'];
+
+      $this->session->set_userdata('id_user', $id);
+      $this->session->set_userdata('nama_lengkap', $nama_lengkap);
+      $this->session->set_userdata('hak_akses', $hak_akses);
+      $data = array(
+        'hak_akses'     => $hak_akses,
+        'id_user'     => $id,
+        'nama_lengkap'     => $nama_lengkap,
+        'tittle' => 'Admin Sekolah',
+        'logged_in' => TRUE
+
+      );
+      redirect('Homepage/Dashboard/', $data);
+    }elseif ($cek_siswa != NULL) {
+      $data_siswa = $this->M_siswa->cek_siswa($u, $p);
+      $this->session->set_userdata('masuk', true);
+      $this->session->set_userdata('user', $u);
+      $data_login_siswa = $data_siswa->row_array();
+
+      $id = $data_login_siswa['id_siswa'];
+      $nama_lengkap = $data_login_siswa['nama_siswa'];
+      $hak_akses = $data_login_siswa['hak_akses'];
+      $nis = $data_login_siswa['nis'];
+
+      $this->session->set_userdata('id_siswa', $id);
+      $this->session->set_userdata('nama_siswa', $nama_lengkap);
+      $this->session->set_userdata('hak_akses', $hak_akses);
+      $this->session->set_userdata('nis', $nis);
+      $data = array(
+        'hak_akses'     => $hak_akses,
+        'id_siswa'     => $id,
+        'nama_siswa'     => $nama_lengkap,
+        'nis'     => $nis,
+        'tittle' => 'Siswa',
+        'logged_in' => TRUE
+
+      );
+      redirect('Homepage/Dashboard/', $data);
+    }elseif ($cek_guru != NULL) {
+      $cek_hak_akses = $cek_guru[0]->hak_akses;
+      if ($cek_hak_akses == 'Guru') {
+        echo "Data Guru";
+        die();
+      }elseif ($cek_hak_akses == '') {
+        # code...
+      }
+    }else{
+      $this->session->set_flashdata('msg', '<div class="alert alert-warning" role="alert" style="color:white">Username Atau Password Salah !</div>');
+      redirect('Login'); 
+    }
 
     $cek_user = $this->M_user->cek_user($u, $p);
     $cek_siswa = NULL;

@@ -96,5 +96,26 @@ class M_kelas extends CI_Model
 		return $query;
 	}
 
+	function tampil_data_kehdairan_byclass ($nama_kelas)
+	{
+
+		$this->db->select('
+			a.nis,
+			a.nama_siswa,
+			a.kelas,
+			b.sakit,
+			b.izin,
+			b.alpa
+
+			');
+		$this->db->from('tabel_siswa as a');
+		$this->db->join('tabel_tidak_hadir as b', 'b.nis = a.nis','left');
+		$this->db->where('a.kelas',$nama_kelas);
+		// $this->db->where('b.mapel',$mapel);
+		$query = $this->db->get();
+		return $query;
+	}
+
+
 
 }

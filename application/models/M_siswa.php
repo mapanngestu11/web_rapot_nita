@@ -27,5 +27,13 @@ class M_siswa extends CI_Model
 		$this->db->update($table, $data);
 	}
 
+	function cek_siswa($u, $p)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM tabel_siswa WHERE nis='$u' AND password =md5('$p')");
+		return $hasil;
+	}
+
+
 
 }
