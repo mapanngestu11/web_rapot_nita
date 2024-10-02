@@ -66,8 +66,8 @@ class Nilai_mapel  extends CI_Controller
    $nilai_pts = $this->input->post('nilai_pts');
    $nilai_pas = $this->input->post('nilai_pas');
    $deskripsi = $this->input->post('deskripsi');
-   $mapel = 'IPA';
-   $id_guru = '1';
+   $mapel = $this->session->userdata('mapel');
+   $id_guru = $this->session->userdata('id_guru');
    $waktu =  date('Y-m-d h:i:s');
 
    $data = array(

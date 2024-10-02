@@ -25,17 +25,33 @@ class Nilai_akhir  extends CI_Controller
 
   public function index()
   {
+   $cek = $this->session->userdata('hak_akses'); 
 
-    $data['title'] = $this->title;
-    $data['button'] = 'Data Nilai Akhir Siswa';
-    $data['table'] = 'Informasi Nilai siswa';
-    $data['data_kelas'] = $this->M_kelas->tampil_data_siswa();
-    $this->load->view('Homepage/List.nilai.akhir.php',$data);
-  }
+   if ($cek == 'siswa' ) {
+     $nis = $this->session->userdata('nis'); 
+     $data['data_siswa'] = $this->M_nilai_akhir->get_datasiswa_bynis($nis);
+     $data['data_nilai_mapel'] = $this->M_nilai_akhir->get_datamapel_bynis($nis);
+     $data['data_nilai_sosial'] = $this->M_nilai_akhir->get_datasosial_bynis($nis);
+     $data['data_nilai_spiritual'] = $this->M_nilai_akhir->get_dataspiritual_bynis($nis);
+     $data['data_kehadiran'] = $this->M_nilai_akhir->get_datakehadiran_bynis($nis);
+     $data['data_walas'] = $this->M_nilai_akhir->get_walas($nis);
+
+     $this->load->view('Homepage/Cetak_rapot',$data);
+   }else{
+     $data['title'] = $this->title;
+     $data['button'] = 'Data Nilai Akhir Siswa';
+     $data['table'] = 'Informasi Nilai siswa';
+     $data['data_kelas'] = $this->M_kelas->tampil_data_siswa();
+     $this->load->view('Homepage/List.nilai.akhir.php',$data);
+   }
 
 
-  public function Listcheck($nama_kelas)
-  {
+
+ }
+
+
+ public function Listcheck($nama_kelas)
+ {
    $data['title'] = $this->title;
    $data['button'] = 'Data Nilai';
    $data['table'] = 'Informasi Nilai Akhir siswa';

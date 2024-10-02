@@ -7,8 +7,22 @@
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
 				
-				<a href="../index.html" class="logo">
-					<img src="<?php echo base_url() . "assets/Homepage/"; ?>img/logo.svg" alt="navbar brand" class="navbar-brand">
+				<style type="text/css">
+					.navbar-brand{
+						width: 30px;
+					}
+					.text-logo{
+						color: white !important;
+						font-size: 12px;
+						margin-top: -37px;
+						font-weight: bold;
+						margin-left: 37px;
+					}
+				</style>
+
+				
+				<a href="index.html" class="logo">
+					<img src="<?php echo base_url() . "assets/login/"; ?>images/logo.png" alt="navbar brand" class="navbar-brand"><p class="text-logo">SMK BANI USMAN</p>
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">

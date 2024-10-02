@@ -82,14 +82,92 @@ class Login  extends CI_Controller
         'logged_in' => TRUE
 
       );
+
+      
       redirect('Homepage/Dashboard/', $data);
     }elseif ($cek_guru != NULL) {
+
       $cek_hak_akses = $cek_guru[0]->hak_akses;
+
       if ($cek_hak_akses == 'Guru') {
-        echo "Data Guru";
-        die();
-      }elseif ($cek_hak_akses == '') {
-        # code...
+        $data_guru  = $this->M_guru->cek_guru($u,$p);
+        $this->session->set_userdata('masuk', true);
+        $this->session->set_userdata('user', $u);
+        $data_login_guru = $data_guru->row_array();
+
+        $id = $data_login_guru['id_guru'];
+        $nama_lengkap = $data_login_guru['nama_guru'];
+        $hak_akses = $data_login_guru['hak_akses'];
+        $mapel = $data_login_guru['mapel'];
+
+        $this->session->set_userdata('id_guru', $id);
+        $this->session->set_userdata('nama_guru', $nama_lengkap);
+        $this->session->set_userdata('hak_akses', $hak_akses);
+        $this->session->set_userdata('mapel', $mapel);
+        $data = array(
+          'hak_akses'     => $hak_akses,
+          'id_guru'     => $id_guru,
+          'nama_guru'     => $nama_lengkap,
+          'mapel'     => $mapel,
+          'tittle' => 'Guru',
+          'logged_in' => TRUE
+
+        );
+
+        redirect('Homepage/Dashboard/', $data);
+
+      }elseif ($cek_hak_akses == 'Walas') {
+        $data_guru  = $this->M_guru->cek_guru($u,$p);
+        $this->session->set_userdata('masuk', true);
+        $this->session->set_userdata('user', $u);
+        $data_login_guru = $data_guru->row_array();
+
+        $id = $data_login_guru['id_guru'];
+        $nama_lengkap = $data_login_guru['nama_guru'];
+        $hak_akses = $data_login_guru['hak_akses'];
+        $mapel = $data_login_guru['mapel'];
+
+        $this->session->set_userdata('id_guru', $id);
+        $this->session->set_userdata('nama_guru', $nama_lengkap);
+        $this->session->set_userdata('hak_akses', $hak_akses);
+        $this->session->set_userdata('mapel', $mapel);
+        $data = array(
+          'hak_akses'     => $hak_akses,
+          'id_guru'     => $id_guru,
+          'nama_guru'     => $nama_lengkap,
+          'mapel'     => $mapel,
+          'tittle' => 'Guru',
+          'logged_in' => TRUE
+
+        );
+
+        redirect('Homepage/Dashboard/', $data);
+      }elseif ($cek_hak_akses == 'Kurikulum'  || $cek_hak_akses == 'Kepsek') {
+        $data_guru  = $this->M_guru->cek_guru($u,$p);
+        $this->session->set_userdata('masuk', true);
+        $this->session->set_userdata('user', $u);
+        $data_login_guru = $data_guru->row_array();
+
+        $id = $data_login_guru['id_guru'];
+        $nama_lengkap = $data_login_guru['nama_guru'];
+        $hak_akses = $data_login_guru['hak_akses'];
+        $mapel = $data_login_guru['mapel'];
+
+        $this->session->set_userdata('id_guru', $id);
+        $this->session->set_userdata('nama_guru', $nama_lengkap);
+        $this->session->set_userdata('hak_akses', $hak_akses);
+        $this->session->set_userdata('mapel', $mapel);
+        $data = array(
+          'hak_akses'     => $hak_akses,
+          'id_guru'     => $id_guru,
+          'nama_guru'     => $nama_lengkap,
+          'mapel'     => $mapel,
+          'tittle' => 'Guru',
+          'logged_in' => TRUE
+
+        );
+
+        redirect('Homepage/Dashboard/', $data);
       }
     }else{
       $this->session->set_flashdata('msg', '<div class="alert alert-warning" role="alert" style="color:white">Username Atau Password Salah !</div>');

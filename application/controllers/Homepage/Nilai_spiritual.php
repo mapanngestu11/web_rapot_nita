@@ -51,7 +51,8 @@ class Nilai_spiritual  extends CI_Controller
 
    $this->load->view('Homepage/List.input.nilai.spiritual.add.php',$data);
  }
-
+ $mapel = $this->session->userdata('mapel');
+ 
  public function update()
  {
    date_default_timezone_set("Asia/Jakarta");
@@ -63,7 +64,7 @@ class Nilai_spiritual  extends CI_Controller
      $nama_siswa = $this->input->post('nama_siswa');
      $predikat = $this->input->post('predikat');
      $deskripsi = $this->input->post('deskripsi');
-     $id_guru = '1';
+     $id_guru = $this->session->userdata('id_guru');
      $waktu =  date('Y-m-d h:i:s');
 
      $data = array(

@@ -78,67 +78,82 @@
 								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
 								<h5 class="text-white op-7 mb-2">SMK BANI USMAN MANUNGGAL</h5>
 							</div>
-							<div class="ml-md-auto py-2 py-md-0">
-								<a href="#" class="btn btn-white btn-border btn-round mr-2">Manage Rapot</a>
-								<a href="#" class="btn btn-secondary btn-round">Tambah Data Siswa</a>
-							</div>
+							<?php 
+							$hak_akses = $this->session->userdata('hak_akses');
+							if ($hak_akses == 'Admin' || $hak_akses == 'Kurikulum') { 
+								?>
+								<div class="ml-md-auto py-2 py-md-0">
+									<a href="#" class="btn btn-white btn-border btn-round mr-2">Cetak Rapott</a>
+									<a href="#" class="btn btn-secondary btn-round">Tambah Data Siswa</a>
+								</div>
+
+							<?php }else{ ?>
+
+							<?php }?>
 						</div>
 					</div>
 				</div>
-				<div class="page-inner mt--5">
-					<div class="row mt--2">
-						<div class="col-md-12">
-							<div class="card full-height">
-								<div class="card-body">
-									<div class="card-title">Overall statistics</div>
-									<div class="card-category">Daily information about statistics in system</div>
-									<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
-										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-1"></div>
-											<h6 class="fw-bold mt-3 mb-0">Data Siswa</h6>
-										</div>
-										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-2"></div>
-											<h6 class="fw-bold mt-3 mb-0">Data Guru</h6>
-										</div>
-										<div class="px-2 pb-2 pb-md-0 text-center">
-											<div id="circles-3"></div>
-											<h6 class="fw-bold mt-3 mb-0">Data Pesan</h6>
+				<?php 
+				$hak_akses = $this->session->userdata('hak_akses');
+				if ($hak_akses == 'Admin' || $hak_akses == 'Kurikulum') { 
+					?>
+					<div class="page-inner mt--5">
+						<div class="row mt--2">
+							<div class="col-md-12">
+								<div class="card full-height">
+									<div class="card-body">
+										<div class="card-title">Overall statistics</div>
+										<div class="card-category">Daily information about statistics in system</div>
+										<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
+											<div class="px-2 pb-2 pb-md-0 text-center">
+												<div id="circles-1"></div>
+												<h6 class="fw-bold mt-3 mb-0">Data Siswa</h6>
+											</div>
+											<div class="px-2 pb-2 pb-md-0 text-center">
+												<div id="circles-2"></div>
+												<h6 class="fw-bold mt-3 mb-0">Data Guru</h6>
+											</div>
+											<div class="px-2 pb-2 pb-md-0 text-center">
+												<div id="circles-3"></div>
+												<h6 class="fw-bold mt-3 mb-0">Data Pesan</h6>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card full-height">
-								<div class="card-header">
-									<div class="card-title">Laporan Harian</div>
-								</div>
-								<div class="card-body">
-									<ol class="activity-feed">
-										<li class="feed-item feed-item-secondary">
-											<time class="date" datetime="9-25">Juli 25</time>
-											<span class="text"><strong>Pak Budi </strong>Melakukan Tambah Data <a href="#">"Rapot Kelas X"</a></span>
-										</li>
-										<li class="feed-item feed-item-success">
-											<time class="date" datetime="9-24">Juli 25</time>
-											<span class="text"><strong>Pak Budi </strong>Melakukan Tambah Data<a href="#">"Rapot Kelas XI"</a></span>
-										</li>
-										<li class="feed-item feed-item-info">
-											<time class="date" datetime="9-23">Sep 23</time>
-											<span class="text"><strong>Pak Joko</strong>Melakukan Update Data<a href="single-group.php">"Rapot Kelas X"</a></span>
-										</li>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card full-height">
+									<div class="card-header">
+										<div class="card-title">Laporan Harian</div>
+									</div>
+									<div class="card-body">
+										<ol class="activity-feed">
+											<li class="feed-item feed-item-secondary">
+												<time class="date" datetime="9-25">Juli 25</time>
+												<span class="text"><strong>Pak Budi </strong>Melakukan Tambah Data <a href="#">"Rapot Kelas X"</a></span>
+											</li>
+											<li class="feed-item feed-item-success">
+												<time class="date" datetime="9-24">Juli 25</time>
+												<span class="text"><strong>Pak Budi </strong>Melakukan Tambah Data<a href="#">"Rapot Kelas XI"</a></span>
+											</li>
+											<li class="feed-item feed-item-info">
+												<time class="date" datetime="9-23">Sep 23</time>
+												<span class="text"><strong>Pak Joko</strong>Melakukan Update Data<a href="single-group.php">"Rapot Kelas X"</a></span>
+											</li>
 
-									</ol>
+										</ol>
+									</div>
 								</div>
 							</div>
+
 						</div>
-						
 					</div>
-				</div>
+				<?php }else{ ?>
+
+				<?php }?>
 			</div>
 			<footer class="footer">
 				<div class="container-fluid">
@@ -167,7 +182,7 @@
 				</div>
 			</footer>
 		</div>
-		
+
 		<!-- Custom template | don't include it in your project! -->
 		<div class="custom-template">
 			<div class="title">Settings</div>
