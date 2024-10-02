@@ -63,16 +63,20 @@
 									<div class="d-flex align-items-center">
 										<h4 class="card-title"><?php echo $table;?><br>
 											<hr>
+											<?php
+											$mapel = $this->session->userdata('mapel');
+											$nama_guru = $this->session->userdata('nama_guru');
+											?>
 											<table>
 												<tr>
 													<td>Nama Guru</td>
 													<td>:</td>
-													<td>Ujang</td>
+													<td><?php  echo $nama_guru;?></td>
 												</tr>
 												<tr>
 													<td>Mata Pelajaran</td>
 													<td>:</td>
-													<td>IPA</td>
+													<td><?php  echo $mapel;?></td>
 												</tr>
 											</table>
 										</h4>
