@@ -46,13 +46,13 @@ class Nilai_spiritual  extends CI_Controller
    $data['title'] = $this->title;
    $data['button'] = 'Data Nilai Spiritual';
    $data['table'] = 'Informasi Data Nilai Spiritual';
-   $mapel = NULL;
+   
    $data['data_kelas'] = $this->M_kelas->tampil_data_nilai_spiritual_siswa_byclass($nama_kelas);
 
    $this->load->view('Homepage/List.input.nilai.spiritual.add.php',$data);
  }
- $mapel = $this->session->userdata('mapel');
- 
+
+
  public function update()
  {
    date_default_timezone_set("Asia/Jakarta");
@@ -87,7 +87,7 @@ class Nilai_spiritual  extends CI_Controller
     $nama_siswa = $this->input->post('nama_siswa');
     $deskripsi = $this->input->post('deskripsi');
     $predikat = $this->input->post('predikat');
-    $id_guru = '1';
+    $id_guru = $this->session->userdata('id_guru');
     $waktu =  date('Y-m-d h:i:s');
 
     $data = array(

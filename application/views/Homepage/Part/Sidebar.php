@@ -179,11 +179,7 @@
 									<span class="sub-item">Nilai Akhir</span>
 								</a>
 							</li>
-							<li>
-								<a href="<?php echo base_url('Homepage/Rapot/') ?>">
-									<span class="sub-item">Cetak Rapot</span>
-								</a>
-							</li>
+
 						</ul>
 					</div>
 				</li>
@@ -483,11 +479,7 @@
 												<span class="sub-item">Nilai Akhir</span>
 											</a>
 										</li>
-										<li>
-											<a href="<?php echo base_url('Homepage/Rapot/') ?>">
-												<span class="sub-item">Cetak Rapot</span>
-											</a>
-										</li>
+										
 									</ul>
 								</div>
 							</li>
