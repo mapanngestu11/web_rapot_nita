@@ -38,14 +38,13 @@ class Tapel  extends CI_Controller
         date_default_timezone_set("Asia/Jakarta");
         $tahun_pelajaran = $this->input->post('tahun_pelajaran');
         $semester = $this->input->post('semester');
-        $dibuat_oleh = 'admin';
-        $waktu =  date('Y-m-d h:i:s');
+
 
         $data = array(
             'tahun_pelajaran' => $tahun_pelajaran,
-            'semester' => $semester,
-            'dibuat_oleh' => $dibuat_oleh,
-            'waktu' => $waktu
+            'semester' => $semester
+
+
         );
 
         $this->M_tahun_pelajaran->input_data($data, 'tabel_tahun_pelajaran');
@@ -55,33 +54,29 @@ class Tapel  extends CI_Controller
     }
 
     public function update(){
-     date_default_timezone_set("Asia/Jakarta");
-     $id_tapel = $this->input->post('id_tapel');
-     $tahun_pelajaran = $this->input->post('tahun_pelajaran');
-     $semester = $this->input->post('semester');
-     $dibuat_oleh = 'admin';
-     $waktu =  date('Y-m-d h:i:s');
+       date_default_timezone_set("Asia/Jakarta");
+       $id_tapel = $this->input->post('id_tapel');
+       $tahun_pelajaran = $this->input->post('tahun_pelajaran');
+       $semester = $this->input->post('semester');
 
 
-     $data = array(
+       $data = array(
         'tahun_pelajaran' => $tahun_pelajaran,
-        'semester' => $semester,
-        'dibuat_oleh' => $dibuat_oleh,
-        'waktu' => $waktu
+        'semester' => $semester
     );
 
-     $where =  array(
+       $where =  array(
         'id_tapel' => $id_tapel
     );
 
-     $this->M_tahun_pelajaran->update_data($where,$data, 'tabel_tahun_pelajaran');
-     echo $this->session->set_flashdata('msg', 'success_update');
-     redirect('Homepage/Tapel');
+       $this->M_tahun_pelajaran->update_data($where,$data, 'tabel_tahun_pelajaran');
+       echo $this->session->set_flashdata('msg', 'success_update');
+       redirect('Homepage/Tapel');
 
- }
+   }
 
- public function delete($id_tapel)
- {
+   public function delete($id_tapel)
+   {
     $id_tapel = $this->input->post('id_tapel');
     $this->M_tahun_pelajaran->delete_data($id_tapel);
     echo $this->session->set_flashdata('msg', 'success_hapus');

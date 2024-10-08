@@ -48,9 +48,9 @@ class Guru  extends CI_Controller
     $input_password = $this->input->post('password');
     $username = $this->input->post('username');
     $password = md5($input_password);
-    $dibuat_oleh = 'admin';
+
     $hak_akses = $this->input->post('hak_akses');
-    $waktu =  date('Y-m-d h:i:s');
+
 
     $data = array(
       'nama_guru' => $nama_guru,
@@ -64,10 +64,7 @@ class Guru  extends CI_Controller
 
       'username' => $username,
       'password' => $password,
-      'hak_akses' => $hak_akses,
-      'dibuat_oleh' => $dibuat_oleh,
-
-      'waktu' => $waktu
+      'hak_akses' => $hak_akses
     );
 
     $this->M_guru->input_data($data, 'tabel_guru');
@@ -92,9 +89,9 @@ class Guru  extends CI_Controller
    $input_password = $this->input->post('password');
    $username = $this->input->post('username');
    $password = md5($input_password);
-   $dibuat_oleh = 'admin';
+
    $hak_akses = $this->input->post('hak_akses');
-   $waktu =  date('Y-m-d h:i:s');
+
 
    $data = array(
     'nama_guru' => $nama_guru,
@@ -108,10 +105,7 @@ class Guru  extends CI_Controller
 
     'username' => $username,
     'password' => $password,
-    'hak_akses' => $hak_akses,
-    'dibuat_oleh' => $dibuat_oleh,
-
-    'waktu' => $waktu
+    'hak_akses' => $hak_akses
   );
 
    $where =  array(

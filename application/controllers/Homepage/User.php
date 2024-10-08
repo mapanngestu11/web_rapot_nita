@@ -38,14 +38,14 @@ class User  extends CI_Controller
     $username = $this->input->post('username');
     $password = md5($this->input->post('password'));
     $hak_akses = 'admin';
-    $last_login =  date('Y-m-d h:i:s');
+
 
     $data = array(
       'nama_lengkap' => $nama_lengkap,
       'username' => $username,
       'password' => $password,
-      'hak_akses' => $hak_akses,
-      'last_login' => $last_login
+      'hak_akses' => $hak_akses
+      
     );
 
     $this->M_user->input_data($data, 'tabel_user');
@@ -61,14 +61,13 @@ class User  extends CI_Controller
    $username = $this->input->post('username');
    $password = md5($this->input->post('password'));
    $hak_akses = 'admin';
-   $last_login =  date('Y-m-d h:i:s');
+
 
    $data = array(
     'nama_lengkap' => $nama_lengkap,
     'username' => $username,
     'password' => $password,
-    'hak_akses' => $hak_akses,
-    'last_login' => $last_login
+    'hak_akses' => $hak_akses
   );
 
    $where =  array(

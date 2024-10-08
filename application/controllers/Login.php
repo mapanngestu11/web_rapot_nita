@@ -67,17 +67,20 @@ class Login  extends CI_Controller
       $id = $data_login_siswa['id_siswa'];
       $nama_lengkap = $data_login_siswa['nama_siswa'];
       $hak_akses = $data_login_siswa['hak_akses'];
+      $kelas = $data_login_siswa['kelas'];
       $nis = $data_login_siswa['nis'];
 
       $this->session->set_userdata('id_siswa', $id);
       $this->session->set_userdata('nama_siswa', $nama_lengkap);
       $this->session->set_userdata('hak_akses', $hak_akses);
       $this->session->set_userdata('nis', $nis);
+      $this->session->set_userdata('kelas', $kelas);
       $data = array(
         'hak_akses'     => $hak_akses,
         'id_siswa'     => $id,
         'nama_siswa'     => $nama_lengkap,
         'nis'     => $nis,
+        'kelas'     => $kelas,
         'tittle' => 'Siswa',
         'logged_in' => TRUE
 

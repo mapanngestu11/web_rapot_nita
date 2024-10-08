@@ -14,6 +14,7 @@ class Nilai_akhir  extends CI_Controller
     $this->load->model('M_siswa');
     $this->load->model('M_kehadiran');
     $this->load->model('M_nilai_akhir');
+    $this->load->model('M_nilai_prestasi');
     $this->title = "Data Kehadiran | SMK BANI USMAN MANUNGGAL";
     if ($this->session->userdata('masuk') != TRUE) {
       $this->session->set_flashdata('msg', '<div class="alert alert-warning" role="alert">Login Terlebih Dahulu ! </div>');
@@ -35,7 +36,10 @@ class Nilai_akhir  extends CI_Controller
      $data['data_nilai_spiritual'] = $this->M_nilai_akhir->get_dataspiritual_bynis($nis);
      $data['data_kehadiran'] = $this->M_nilai_akhir->get_datakehadiran_bynis($nis);
      $data['data_walas'] = $this->M_nilai_akhir->get_walas($nis);
+     $data['data_prestasi'] = $this->M_nilai_akhir->get_data_nilai_prestasi($nis);
+     $kelas = $this->session->userdata('kelas'); 
 
+     $data['info_walas'] = $this->M_kelas->get_walas($kelas)->result();
      $this->load->view('Homepage/Cetak_rapot',$data);
    }else{
      $data['title'] = $this->title;
@@ -68,7 +72,7 @@ class Nilai_akhir  extends CI_Controller
   $data['data_nilai_spiritual'] = $this->M_nilai_akhir->get_dataspiritual_bynis($nis);
   $data['data_kehadiran'] = $this->M_nilai_akhir->get_datakehadiran_bynis($nis);
   $data['data_walas'] = $this->M_nilai_akhir->get_walas($nis);
-
+  $data['data_prestasi'] = $this->M_nilai_akhir->get_data_nilai_prestasi($nis);
   $this->load->view('Homepage/Cetak_rapot',$data);
 }
 

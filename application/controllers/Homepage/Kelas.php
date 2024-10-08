@@ -50,16 +50,12 @@ class Kelas  extends CI_Controller
         $tingkatan = $this->input->post('tingkatan');
         $walas = $this->input->post('walas');
         $tahun_pelajaran = $this->input->post('tahun_pelajaran');
-        $dibuat_oleh = 'admin';
-        $waktu =  date('Y-m-d h:i:s');
 
         $data = array(
             'nama_kelas' => $nama_kelas,
             'tingkatan' => $tingkatan,
             'walas' => $walas,
-            'tahun_pelajaran' => $tahun_pelajaran,
-            'dibuat_oleh' => $dibuat_oleh,
-            'waktu' => $waktu
+            'tahun_pelajaran' => $tahun_pelajaran
         );
 
         $this->M_kelas->input_data($data, 'tabel_kelas');
@@ -69,37 +65,33 @@ class Kelas  extends CI_Controller
     }
 
     public function update(){
-       date_default_timezone_set("Asia/Jakarta");
-       $id_kelas = $this->input->post('id_kelas');
-       $nama_kelas = $this->input->post('nama_kelas');
-       $tingkatan = $this->input->post('tingkatan');
-       $walas = $this->input->post('walas');
-       $tahun_pelajaran = $this->input->post('tahun_pelajaran');
-       $dibuat_oleh = 'admin';
-       $waktu =  date('Y-m-d h:i:s');
+     date_default_timezone_set("Asia/Jakarta");
+     $id_kelas = $this->input->post('id_kelas');
+     $nama_kelas = $this->input->post('nama_kelas');
+     $tingkatan = $this->input->post('tingkatan');
+     $walas = $this->input->post('walas');
+     $tahun_pelajaran = $this->input->post('tahun_pelajaran');
 
-
-       $data = array(
+     $data = array(
         'nama_kelas' => $nama_kelas,
         'tingkatan' => $tingkatan,
         'walas' => $walas,
         'tahun_pelajaran' => $tahun_pelajaran,
-        'dibuat_oleh' => $dibuat_oleh,
-        'waktu' => $waktu
+
     );
 
-       $where =  array(
+     $where =  array(
         'id_kelas' => $id_kelas
     );
 
-       $this->M_kelas->update_data($where,$data, 'tabel_kelas');
-       echo $this->session->set_flashdata('msg', 'success_update');
-       redirect('Homepage/Kelas');
+     $this->M_kelas->update_data($where,$data, 'tabel_kelas');
+     echo $this->session->set_flashdata('msg', 'success_update');
+     redirect('Homepage/Kelas');
 
-   }
+ }
 
-   public function delete($id_kelas)
-   {
+ public function delete($id_kelas)
+ {
     $id_kelas = $this->input->post('id_kelas');
     $this->M_kelas->delete_data($id_kelas);
     echo $this->session->set_flashdata('msg', 'success_hapus');

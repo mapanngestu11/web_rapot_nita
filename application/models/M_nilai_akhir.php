@@ -63,6 +63,17 @@ class M_nilai_akhir extends CI_Model
 		$query =  $this->db->get('');
 		return $query;
 	}
+
+
+	function get_data_nilai_prestasi($nis)
+	{
+		// var_dump($nis);
+		$this->db->select('*');
+		$this->db->from('tabel_prestasi');
+		$this->db->where('nis',$nis);
+		$query =  $this->db->get('');
+		return $query;
+	}
 	
 	
 

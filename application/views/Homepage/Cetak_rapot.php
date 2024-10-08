@@ -76,9 +76,18 @@
 					
 					?>
 					<tr>
+						<?php 
+						$hak_akses = $this->session->userdata('hak_akses');
+
+						if ($hak_akses == 'Walas') {
+							$nama_walas = $this->session->userdata('nama_guru');
+						}elseif ($hak_akses == 'siswa') {
+							$nama_walas =  $info_walas[0]->walas ;
+						}
+						?>
 						<td>Wali Kelas</td>
 						<td>:</td>
-						<td><?php echo $nama_guru;?></td>
+						<td><?php echo $nama_walas;?></td>
 					</tr>
 				<?php endforeach;?>
 			</table>
@@ -188,6 +197,31 @@
 
 				<td><?php echo $predikat_nilai_spiritual;?></td>
 				<td><?php echo $deskripsi_nilai_spritual;?></td>
+			</tr>
+		<?php endforeach;?>
+	</table>
+
+	<p style="font-weight: bold;">Nilai Prestasi</p>
+	<table border="1" width="100%">
+		<tr style="text-align: center; font-weight: bold;">
+
+			<td>Jenis Prestasi</td>
+			<td>Keterangan</td>
+		</tr>
+		<?php
+		$no = 0;
+		foreach ($data_prestasi->result_array() as $row) :
+
+			$no++;
+
+			$jenis_prestasi = $row['jenis_prestasi'];
+			$keterangan_prestasi = $row['keterangan'];
+
+			?>
+			<tr>
+
+				<td><?php echo $jenis_prestasi;?></td>
+				<td><?php echo $keterangan_prestasi;?></td>
 			</tr>
 		<?php endforeach;?>
 	</table>

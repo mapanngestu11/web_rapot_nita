@@ -116,6 +116,35 @@ class M_kelas extends CI_Model
 		return $query;
 	}
 
+	function tampil_data_nilai_prestasi_siswa_byclass($nama_kelas)
+	{
+
+		$this->db->select('
+			a.nis,
+			a.nama_siswa,
+			a.kelas,
+			b.jenis_prestasi,
+			b.keterangan
+
+			');
+		$this->db->from('tabel_siswa as a');
+		$this->db->join('tabel_prestasi as b', 'b.nis = a.nis','left');
+		$this->db->where('a.kelas',$nama_kelas);
+		// $this->db->where('b.mapel',$mapel);
+		$query = $this->db->get();
+		return $query;
+	}
+	function get_walas($kelas)
+	{
+		$this->db->select('walas');
+		$this->db->from('tabel_kelas');
+		$this->db->where('tingkatan',$kelas);
+		// $this->db->where('b.mapel',$mapel);
+		$query = $this->db->get();
+		return $query;
+
+	}
+
 
 
 }

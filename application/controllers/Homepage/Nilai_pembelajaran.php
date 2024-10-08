@@ -55,16 +55,13 @@ class Nilai_pembelajaran  extends CI_Controller
     $mapel     = $this->input->post('mapel');
     $nilai_kkm = $this->input->post('nilai_kkm');
 
-    $dibuat_oleh = 'admin';
-    $waktu =  date('Y-m-d h:i:s');
+
 
     $data = array(
       'nama_kelas' => $nama_kelas,
       'nama_guru' => $nama_guru,
       'mapel' => $mapel,
-      'nilai_kkm' => $nilai_kkm,
-      'dibuat_oleh' => $dibuat_oleh,
-      'waktu' => $waktu
+      'nilai_kkm' => $nilai_kkm
     );
 
     $this->M_nilai_pembelajaran->input_data($data, 'tabel_kkm');
@@ -82,16 +79,12 @@ class Nilai_pembelajaran  extends CI_Controller
    $mapel     = $this->input->post('mapel');
    $nilai_kkm = $this->input->post('nilai_kkm');
 
-   $dibuat_oleh = 'admin';
-   $waktu =  date('Y-m-d h:i:s');
 
    $data = array(
     'nama_kelas' => $nama_kelas,
     'nama_guru' => $nama_guru,
     'mapel' => $mapel,
-    'nilai_kkm' => $nilai_kkm,
-    'dibuat_oleh' => $dibuat_oleh,
-    'waktu' => $waktu
+    'nilai_kkm' => $nilai_kkm
   );
 
    $where =  array(

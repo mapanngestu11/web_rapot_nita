@@ -152,6 +152,12 @@
 								</a>
 							</li>
 							<li>
+								<a href="<?php echo base_url('Homepage/Prestasi/') ?>">
+									<span class="sub-item">Prestasi</span>
+								</a>
+							</li>
+
+							<li>
 								<a href="<?php echo base_url('Homepage/Kehadiran/') ?>">
 									<span class="sub-item">Ketidakhadiran</span>
 								</a>

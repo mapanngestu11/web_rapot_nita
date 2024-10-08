@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kehadiran  extends CI_Controller
+class Prestasi  extends CI_Controller
 {
 
   function __construct()
@@ -11,8 +11,8 @@ class Kehadiran  extends CI_Controller
     $this->load->helper('url');
         // $this->load->model('M_user');
     $this->load->model('M_kelas');
-    $this->load->model('M_kehadiran');
-    $this->title = "Data Kehadiran | SMK BANI USMAN MANUNGGAL";
+    $this->load->model('M_nilai_prestasi');
+    $this->title = "Data Nilai | SMK BANI USMAN MANUNGGAL";
     if ($this->session->userdata('masuk') != TRUE) {
       $this->session->set_flashdata('msg', '<div class="alert alert-warning" role="alert">Login Terlebih Dahulu ! </div>');
       $url = base_url('Login');
@@ -23,24 +23,32 @@ class Kehadiran  extends CI_Controller
 
   public function index()
   {
-
     $data['title'] = $this->title;
-    $data['button'] = 'Data Absensi';
-    $data['table'] = 'Informasi Absensi siswa';
+    $data['button'] = 'Data Nilai Prestasi';
+    $data['table'] = 'Informasi Data Prestasi';
     $data['data_kelas'] = $this->M_kelas->tampil_data_siswa();
-    $this->load->view('Homepage/List.input.kehadiran.php',$data);
+    $this->load->view('Homepage/List.input.nilai.prestasi.php',$data);
   }
 
+
+
+  public function rapot()
+  {
+
+    $data['title'] = $this->title;
+    $data['table'] = 'Informasi Data Rapot Siswa';
+    $this->load->view('Homepage/List.rapot.php',$data);
+  }
 
   public function Listcheck($nama_kelas)
   {
    $data['title'] = $this->title;
-   $data['button'] = 'Data Absensi';
-   $data['table'] = 'Informasi Absensi siswa';
+   $data['button'] = 'Data Nilai Prestasi';
+   $data['table'] = 'Informasi Data Prestasi';
    $mapel = NULL;
-   $data['data_kelas'] = $this->M_kelas->tampil_data_kehdairan_byclass($nama_kelas);
+   $data['data_kelas'] = $this->M_kelas->tampil_data_nilai_prestasi_siswa_byclass($nama_kelas);
 
-   $this->load->view('Homepage/List.input.kehadiran.add.php',$data);
+   $this->load->view('Homepage/List.input.nilai.prestasi.add.php',$data);
  }
 
  public function update()
@@ -48,48 +56,45 @@ class Kehadiran  extends CI_Controller
    date_default_timezone_set("Asia/Jakarta");
    $nis = $this->input->post('nis');
   // $nis = '7';
-   $cek = $this->M_kehadiran->cek_nis($nis)->result();
+   $cek = $this->M_nilai_prestasi->cek_nis($nis)->result();
    if ($cek != Null) {
      $nis = $this->input->post('nis');
      $nama_siswa = $this->input->post('nama_siswa');
-     $sakit = $this->input->post('sakit');
-     $izin = $this->input->post('izin');
-     $alpa = $this->input->post('alpa');
-
+     $jenis_prestasi = $this->input->post('jenis_prestasi');
+     $keterangan = $this->input->post('keterangan');
 
      $data = array(
       'nis' => $nis,
       'nama_siswa' => $nama_siswa,
-      'sakit' => $sakit,
-      'izin' => $izin,
-      'alpa' => $alpa
+      'jenis_prestasi' => $jenis_prestasi,
+      'keterangan' => $keterangan
+
     );
      $where =  array(
       'nis' => $nis
     );
 
-     $this->M_kehadiran->update_data($where,$data, 'tabel_tidak_hadir');
+     $this->M_nilai_prestasi->update_data($where,$data, 'tabel_prestasi');
      echo $this->session->set_flashdata('msg', 'success');
-     redirect('Homepage/Kehadiran');
+     redirect('Homepage/Nilai_sosial');
    }else{
     $nis = $this->input->post('nis');
     $nama_siswa = $this->input->post('nama_siswa');
-    $sakit = $this->input->post('sakit');
-    $izin = $this->input->post('izin');
-    $alpa = $this->input->post('alpa');
+    $jenis_prestasi = $this->input->post('jenis_prestasi');
+    $keterangan = $this->input->post('keterangan');
 
 
     $data = array(
       'nis' => $nis,
       'nama_siswa' => $nama_siswa,
-      'sakit' => $sakit,
-      'izin' => $izin,
-      'alpa' => $alpa
+      'jenis_prestasi' => $jenis_prestasi,
+      'keterangan' => $keterangan
+
     );
 
-    $this->M_kehadiran->input_data($data, 'tabel_tidak_hadir');
+    $this->M_nilai_prestasi->input_data($data, 'tabel_prestasi');
     echo $this->session->set_flashdata('msg', 'success');
-    redirect('Homepage/Kehadiran');
+    redirect('Homepage/Nilai_sosial');
   }
 
 }

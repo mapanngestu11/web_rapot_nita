@@ -68,7 +68,7 @@ class Nilai_mapel  extends CI_Controller
    $deskripsi = $this->input->post('deskripsi');
    $mapel = $this->session->userdata('mapel');
    $id_guru = $this->session->userdata('id_guru');
-   $waktu =  date('Y-m-d h:i:s');
+   
 
    $data = array(
     'nis' => $nis,

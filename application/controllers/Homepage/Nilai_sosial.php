@@ -63,16 +63,13 @@ class Nilai_sosial  extends CI_Controller
      $nama_siswa = $this->input->post('nama_siswa');
      $predikat = $this->input->post('predikat');
      $deskripsi = $this->input->post('deskripsi');
-     $id_guru = $this->session->userdata('id_guru');
-     $waktu =  date('Y-m-d h:i:s');
 
      $data = array(
       'nis' => $nis,
       'nama_siswa' => $nama_siswa,
       'deskripsi' => $deskripsi,
-      'predikat' => $predikat,
-      'id_guru' => $id_guru,
-      'waktu' => $waktu
+      'predikat' => $predikat
+
     );
      $where =  array(
       'nis' => $nis
@@ -86,17 +83,14 @@ class Nilai_sosial  extends CI_Controller
     $nama_siswa = $this->input->post('nama_siswa');
     $deskripsi = $this->input->post('deskripsi');
     $predikat = $this->input->post('predikat');
-    $id_guru = '1';
-    $waktu =  date('Y-m-d h:i:s');
+
 
     $data = array(
       'nis' => $nis,
       'nama_siswa' => $nama_siswa,
       'predikat' => $predikat,
-      'deskripsi' => $deskripsi,
-      
-      'id_guru' => $id_guru,
-      'waktu' => $waktu
+      'deskripsi' => $deskripsi
+
     );
 
     $this->M_nilai_sosial->input_data($data, 'tabel_nilai_sosial');

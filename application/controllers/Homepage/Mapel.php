@@ -46,16 +46,11 @@ class Mapel  extends CI_Controller
     date_default_timezone_set("Asia/Jakarta");
     $nama_mapel = $this->input->post('nama_mapel');
     $singkatan = $this->input->post('singkatan');
-
-    $dibuat_oleh = 'admin';
-    $waktu =  date('Y-m-d h:i:s');
+    
 
     $data = array(
       'nama_mapel' => $nama_mapel,
-      'singkatan' => $singkatan,
-      'dibuat_oleh' => $dibuat_oleh,
-
-      'waktu' => $waktu
+      'singkatan' => $singkatan
     );
 
     $this->M_mapel->input_data($data, 'tabel_mapel');
@@ -69,15 +64,12 @@ class Mapel  extends CI_Controller
    $id_mapel = $this->input->post('id_mapel');
    $nama_mapel = $this->input->post('nama_mapel');
    $singkatan = $this->input->post('singkatan');
-   $dibuat_oleh = 'admin';
-   $waktu =  date('Y-m-d h:i:s');
+
+
 
    $data = array(
     'nama_mapel' => $nama_mapel,
     'singkatan' => $singkatan,
-    'dibuat_oleh' => $dibuat_oleh,
-
-    'waktu' => $waktu
   );
 
    $where =  array(

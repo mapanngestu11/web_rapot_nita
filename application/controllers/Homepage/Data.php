@@ -84,7 +84,7 @@ class Data  extends CI_Controller
     $username = $nis;
     $password = md5($format_password);
 
-    $dibuat_oleh = 'admin';
+
     $hak_akses = 'siswa';
     $waktu =  date('Y-m-d h:i:s');
 
@@ -115,10 +115,7 @@ class Data  extends CI_Controller
 
       'username' => $username,
       'password' => $password,
-      'hak_akses' => $hak_akses,
-      'dibuat_oleh' => $dibuat_oleh,
-
-      'waktu' => $waktu
+      'hak_akses' => $hak_akses
     );
 
     $this->M_siswa->input_data($data, 'tabel_siswa');
@@ -128,63 +125,59 @@ class Data  extends CI_Controller
   }
 
   public function sekolah_update(){
-   date_default_timezone_set("Asia/Jakarta");
-   $id_data_sekolah = $this->input->post('id_data_sekolah'); 
-   $npsn = $this->input->post('npsn');
-   $nss = $this->input->post('nss');
-   $nama_sekolah = $this->input->post('nama_sekolah');
-   $alamat = $this->input->post('alamat');
 
-   $kelurahan = $this->input->post('kelurahan');
-   $kecamatan = $this->input->post('kecamatan');
-   $kota = $this->input->post('kota');
-   $provinsi = $this->input->post('provinsi');
-   $website = $this->input->post('website');
+    date_default_timezone_set("Asia/Jakarta");
+    $id_data_sekolah = $this->input->post('id_data_sekolah'); 
+    $npsn = $this->input->post('npsn');
+    $nss = $this->input->post('nss');
+    $nama_sekolah = $this->input->post('nama_sekolah');
+    $alamat = $this->input->post('alamat');
 
-   $email = $this->input->post('email');
-   $nip_kepsek = $this->input->post('nip_kepsek');
-   $kepala_sekolah = $this->input->post('kepala_sekolah');
+    $kelurahan = $this->input->post('kelurahan');
+    $kecamatan = $this->input->post('kecamatan');
+    $kota = $this->input->post('kota');
+    $provinsi = $this->input->post('provinsi');
+    $website = $this->input->post('website');
 
-   $dibuat_oleh = 'admin';
-   $waktu =  date('Y-m-d h:i:s');
+    $email = $this->input->post('email');
+    $nip_kepsek = $this->input->post('nip_kepsek');
+    $kepala_sekolah = $this->input->post('kepala_sekolah');
 
-   $data = array(
-    'npsn' => $npsn,
-    'nss' => $nss,
-    'nama_sekolah' => $nama_sekolah,
-    'alamat' => $alamat,
-    'kelurahan' => $kelurahan,
 
-    'kecamatan' => $kecamatan,
-    'kota' => $kota,
-    'provinsi' => $provinsi,
-    'website' => $website,
-    'email' => $email,
+    $data = array(
+      'npsn' => $npsn,
+      'nss' => $nss,
+      'nama_sekolah' => $nama_sekolah,
+      'alamat' => $alamat,
+      'kelurahan' => $kelurahan,
 
-    'kepala_sekolah' => $kepala_sekolah,
-    'nip_kepsek' => $nip_kepsek,
-    'dibuat_oleh' => $dibuat_oleh,
+      'kecamatan' => $kecamatan,
+      'kota' => $kota,
+      'provinsi' => $provinsi,
+      'website' => $website,
+      'email' => $email,
 
-    'waktu' => $waktu
-  );
+      'kepala_sekolah' => $kepala_sekolah,
+      'nip_kepsek' => $nip_kepsek
+    );
 
-   $where =  array(
-    'id_data_sekolah' => $id_data_sekolah
-  );
+    $where =  array(
+      'id_data_sekolah' => $id_data_sekolah
+    );
 
-   $this->M_data_sekolah->update_data($where,$data, 'tabel_data_sekolah');
-   echo $this->session->set_flashdata('msg', 'success_update');
-   redirect('Homepage/Data/Sekolah');
+    $this->M_data_sekolah->update_data($where,$data, 'tabel_data_sekolah');
+    echo $this->session->set_flashdata('msg', 'success_update');
+    redirect('Homepage/Data/Sekolah');
 
- }
+  }
 
- public function delete($id_siswa)
- {
-  $id_siswa = $this->input->post('id_siswa');
-  $this->M_siswa->delete_data($id_siswa);
-  echo $this->session->set_flashdata('msg', 'success_hapus');
-  redirect('Homepage/Siswa');
-}
+  public function delete($id_siswa)
+  {
+    $id_siswa = $this->input->post('id_siswa');
+    $this->M_siswa->delete_data($id_siswa);
+    echo $this->session->set_flashdata('msg', 'success_hapus');
+    redirect('Homepage/Siswa');
+  }
 
 
 

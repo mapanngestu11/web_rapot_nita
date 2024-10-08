@@ -76,9 +76,8 @@ class Siswa  extends CI_Controller
     $username = $nis;
     $password = md5($format_password);
 
-    $dibuat_oleh = 'admin';
     $hak_akses = 'siswa';
-    $waktu =  date('Y-m-d h:i:s');
+
 
     $data = array(
       'nama_siswa' => $nama_siswa,
@@ -107,10 +106,7 @@ class Siswa  extends CI_Controller
 
       'username' => $username,
       'password' => $password,
-      'hak_akses' => $hak_akses,
-      'dibuat_oleh' => $dibuat_oleh,
-
-      'waktu' => $waktu
+      'hak_akses' => $hak_akses
     );
 
     $this->M_siswa->input_data($data, 'tabel_siswa');
@@ -152,10 +148,8 @@ class Siswa  extends CI_Controller
 
    $username = $nis;
    $password = md5($format_password);
-
-   $dibuat_oleh = 'admin';
    $hak_akses = 'siswa';
-   $waktu =  date('Y-m-d h:i:s');
+
 
    $data = array(
     'nama_siswa' => $nama_siswa,
@@ -184,10 +178,7 @@ class Siswa  extends CI_Controller
 
     'username' => $username,
     'password' => $password,
-    'hak_akses' => $hak_akses,
-    'dibuat_oleh' => $dibuat_oleh,
-
-    'waktu' => $waktu
+    'hak_akses' => $hak_akses
   );
 
    $where =  array(

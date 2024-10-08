@@ -110,7 +110,7 @@
 													<th>Nis</th>
 													<th>Nama Siswa</th>
 													<th>Kelas</th>
-													<th>Predikat</th>
+													
 													
 													<th style="width: 10%">Action</th>
 												</tr>
@@ -121,7 +121,7 @@
 													<th>Nis</th>
 													<th>Nama Siswa</th>
 													<th>Kelas</th>
-													<th>Predikat</th>
+
 													
 													<th style="width: 10%">Action</th>
 												</tr>
@@ -136,7 +136,7 @@
 													$nis           = $row['nis'];
 													$nama_siswa = $row['nama_siswa'];
 													$kelas = $row['kelas'];
-													$predikat = $row['predikat'];
+													
 
 													
 													?>
@@ -145,7 +145,7 @@
 														<td><?php echo $nis;?></td>
 														<td><?php echo $nama_siswa;?></td>
 														<td><?php echo $kelas;?></td>
-														<td><?php echo $predikat;?></td>
+														
 
 														<td>
 															<div class="form-button-action">
@@ -179,7 +179,8 @@
 				$nis               = $row['nis'];
 				$nama_siswa = $row['nama_siswa'];
 				$kelas           = $row['kelas'];
-				$predikat         = $row['predikat'];
+				$jenis_prestasi         = $row['jenis_prestasi'];
+				$keterangan = $row['keterangan'];
 
 
 				
@@ -204,7 +205,7 @@
 							</div>
 							<div class="modal-body">
 								<p class="small">Isikan semua data dengan benar.</p>
-								<form action="<?php echo base_url('Homepage/Nilai_sosial/update') ?>" method="POST">
+								<form action="<?php echo base_url('Homepage/Prestasi/update') ?>" method="POST">
 									<span class="badge badge-primary mb-4">Data Nilai</span>
 									<div class="row">
 										<div class="col-sm-6">
@@ -223,20 +224,21 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Predikat</label>
-												<input type="text" name="predikat" class="form-control">
+												<label>Jenis Prestasi</label>
+												<input type="text" name="jenis_prestasi" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="form-group form-group-default">
+												<label>Keterangan</label>
+												<input type="text" name="keterangan" class="form-control">
 											</div>
 										</div>
 									</div>
 
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group form-group-default">
-												<label>Deskripsi</label>
-												<textarea class="form-control" name="deskripsi"></textarea>
-											</div>
-										</div>
-									</div>
+
 
 
 
@@ -270,10 +272,8 @@
 				$nis               = $row['nis'];
 				$nama_siswa = $row['nama_siswa'];
 				$kelas           = $row['kelas'];
-				$predikat         = $row['predikat'];
-
-				$deskripsi = $row['deskripsi'];
-
+				$jenis_prestasi = $row['jenis_prestasi'];
+				$keterangan = $row['keterangan'];
 
 				
 
@@ -316,21 +316,19 @@
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Predikat</label>
-												<input type="text" name="predikat" class="form-control" value="<?php echo $predikat;?>" readonly>
+												<label>Jenis Prestasi</label>
+												<input type="text" name="jenis_prestasi" class="form-control" value="<?php echo $jenis_prestasi;?>">
 											</div>
 										</div>
 									</div>
-
 									<div class="row">
 										<div class="col-sm-12">
 											<div class="form-group form-group-default">
-												<label>Deskripsi</label>
-												<input type="text" name="deskripsi" class="form-control" value="<?php echo $deskripsi;?>" readonly>
+												<label>Keterangan</label>
+												<input type="text" name="keterangan" class="form-control" value="<?php echo $keterangan;?>">
 											</div>
 										</div>
 									</div>
-
 
 
 								</div>
